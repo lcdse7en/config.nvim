@@ -187,6 +187,10 @@ local normal_mode_mappings = {
     }
   },
 
+  n = {
+    name = 'noice',
+  },
+
   p = {
     name = 'Project',
     f = { 'file' },
