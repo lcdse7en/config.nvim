@@ -60,6 +60,8 @@ keymap("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", silent)
 keymap("n", "gp", ":bp<CR>", silent)
 keymap("n", "<S-q>", ":lua require('mini.bufremove').delete(0, false)<CR>", silent)
 
+keymap("n", "<Leader>du", "<CMD>DBUIToggle<CR>", silent)
+
 -- Don't yank on delete char
 keymap("n", "x", '"_x', silent)
 keymap("n", "X", '"_X', silent)
