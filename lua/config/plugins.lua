@@ -1114,16 +1114,16 @@ return {
 				"kristijanhusak/vim-dadbod-completion",
 				ft = { "sql", "mysql", "plsql" },
 				lazy = true,
-        init = function()
-          vim.api.nvim_create_autocmd('FileType', {
-            desc = 'dadbod completion',
-            group = vim.api.nvim_create_augroup('dadbod_cmp', { clear = true }),
-            pattern = { 'sql', 'mysql', 'plsql' },
-            callback = function()
-              require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
-            end,
-          })
-        end,
+				init = function()
+					vim.api.nvim_create_autocmd("FileType", {
+						desc = "dadbod completion",
+						group = vim.api.nvim_create_augroup("dadbod_cmp", { clear = true }),
+						pattern = { "sql", "mysql", "plsql" },
+						callback = function()
+							require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
+						end,
+					})
+				end,
 			},
 		},
 		cmd = {
@@ -1266,6 +1266,19 @@ return {
 		},
 		opts = {
 			open_for_directories = false,
+		},
+	},
+	{
+		"rmagatti/alternate-toggler", --  NOTE: false | true
+		lazy = true,
+		cmd = { "ToggleAlternate" },
+		keys = {
+			{
+				"<leader>aa",
+				"<cmd>ToggleAlternate<cr>",
+				mode = { "n" },
+				desc = "Toggle Alternate False  True",
+			},
 		},
 	},
 }
