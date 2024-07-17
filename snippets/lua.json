@@ -1,0 +1,1 @@
+{"myadd":{"prefix":"myadd","body":["{","  \"$1\",","  config = function()","    require(\"plugins.$2\")","  end","},"]}}
