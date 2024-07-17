@@ -13,16 +13,27 @@ local config_dir = fn.stdpath('config')
 -- │ Header                                                   │
 -- ╰──────────────────────────────────────────────────────────╯
 
-local header = {
-  " ████████                           ██            ",
-  "░██░░░░░                           ░░             ",
-  "░██        █████   ██████  ██    ██ ██ ██████████ ",
-  "░███████  ██░░░██ ██░░░░██░██   ░██░██░░██░░██░░██",
-  "░██░░░░  ░██  ░░ ░██   ░██░░██ ░██ ░██ ░██ ░██ ░██",
-  "░██      ░██   ██░██   ░██ ░░████  ░██ ░██ ░██ ░██",
-  "░████████░░█████ ░░██████   ░░██   ░██ ███ ░██ ░██",
-  "░░░░░░░░  ░░░░░   ░░░░░░     ░░    ░░ ░░░  ░░  ░░ ",
-}
+-- local header = {
+--   " ████████                           ██            ",
+--   "░██░░░░░                           ░░             ",
+--   "░██        █████   ██████  ██    ██ ██ ██████████ ",
+--   "░███████  ██░░░██ ██░░░░██░██   ░██░██░░██░░██░░██",
+--   "░██░░░░  ░██  ░░ ░██   ░██░░██ ░██ ░██ ░██ ░██ ░██",
+--   "░██      ░██   ██░██   ░██ ░░████  ░██ ░██ ░██ ░██",
+--   "░████████░░█████ ░░██████   ░░██   ░██ ███ ░██ ░██",
+--   "░░░░░░░░  ░░░░░   ░░░░░░     ░░    ░░ ░░░  ░░  ░░ ",
+-- }
+
+  local header = {
+    '                                                                               ',
+    '            ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z',
+    '            ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    ',
+    '            ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       ',
+    '            ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         ',
+    '            ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║           ',
+    '            ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝           ',
+    '                                                                               ',
+  }
 
 dashboard.section.header.type = "text";
 dashboard.section.header.val = header;
@@ -118,7 +129,7 @@ dashboard.section.buttons.val = {
   button("u",     icons.packageDown .. " " .. "Update Plugins",     "<cmd>Lazy update<CR>",                                                                         {}),
   button("m",     icons.package .. " " .. "Manage Plugins",         "<cmd>Lazy<CR>",                                                                                {}),
   button("s",     icons.cog .. " " .. "Settings",                   "<cmd>e $MYVIMRC<CR>",                                                                          {}),
-  button("<ESC>", icons.exit .. " " .. "Exit",                      "<cmd>exit<CR>",                                                                                {}),
+  button("q", icons.exit .. " " .. "Exit",                      "<cmd>exit<CR>",                                                                                {}),
 }
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -140,11 +151,32 @@ local function line_from(file)
   return lines
 end
 
+-- local function footer()
+--   local plugins = require("lazy").stats().count
+--   local v = vim.version()
+--   local ecovim_version = line_from(config_dir .. "/.ecovim.version")
+--   return string.format(" v%d.%d.%d  󰂖 %d   %s ", v.major, v.minor, v.patch, plugins, ecovim_version[1])
+-- end
+
 local function footer()
-  local plugins = require("lazy").stats().count
+  local plugins = require('lazy').stats().count
   local v = vim.version()
-  local ecovim_version = line_from(config_dir .. "/.ecovim.version")
-  return string.format(" v%d.%d.%d  󰂖 %d   %s ", v.major, v.minor, v.patch, plugins, ecovim_version[1])
+  local se7envim_version = line_from(config_dir .. '/.se7envim.version')
+  local stats = require('lazy').stats()
+  local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+  -- return string.format(" v%d.%d.%d   %d   %s", v.major, v.minor, v.patch, plugins, se7envim_version[1])
+  return ' v'
+    .. v.major
+    .. '.'
+    .. v.minor
+    .. '.'
+    .. v.patch
+    .. '  '
+    .. ' ⚡ Neovim loaded '
+    .. plugins
+    .. ' plugins in '
+    .. ms
+    .. 'ms'
 end
 
 dashboard.section.footer.val = {

@@ -440,7 +440,8 @@ return {
 		config = function()
 			require("plugins.galaxyline")
 		end,
-		event = "VeryLazy",
+    lazy = false,
+		-- event = "VeryLazy",
 	},
 	{
 		"echasnovski/mini.bufremove",
@@ -460,7 +461,7 @@ return {
 		},
 		version = "*",
 		config = function()
-			-- require("plugins.bufferline")
+			require("plugins.bufferline")
 		end,
 		keys = {
 			{ "<Space>1", "<cmd>BufferLineGoToBuffer 1<CR>" },
@@ -607,6 +608,68 @@ return {
 		"folke/noice.nvim",
 		cond = EcoVim.plugins.experimental_noice.enabled,
 		lazy = false,
+		keys = {
+			{
+				"<S-Enter>",
+				function()
+					require("noice").redirect(vim.fn.getcmdline())
+				end,
+				mode = "c",
+				desc = "Redirect Cmdline",
+			},
+			{
+				"<leader>nl",
+				function()
+					require("noice").cmd("last")
+				end,
+				desc = "Noice Last Message",
+			},
+			{
+				"<leader>nh",
+				function()
+					require("noice").cmd("history")
+				end,
+				desc = "Noice History",
+			},
+			{
+				"<leader>na",
+				function()
+					require("noice").cmd("all")
+				end,
+				desc = "Noice All",
+			},
+			{
+				"<leader>nd",
+				function()
+					require("noice").cmd("dismiss")
+				end,
+				desc = "Dismiss All",
+			},
+			{
+				"<A-f>",
+				function()
+					if not require("noice.lsp").scroll(4) then
+						return "<c-f>"
+					end
+				end,
+				silent = true,
+				expr = true,
+				desc = "Scroll forward",
+				mode = { "i", "n", "s" },
+			},
+			{
+				"<A-b>",
+				function()
+					if not require("noice.lsp").scroll(-4) then
+						return "<c-b>"
+					end
+				end,
+				silent = true,
+				expr = true,
+				desc = "Scroll backward",
+				mode = { "i", "n", "s" },
+			},
+		},
 		config = function()
 			require("plugins.noice")
 		end,
@@ -1087,109 +1150,6 @@ return {
 		end,
 	},
 	{
-		"folke/noice.nvim",
-		enable = true,
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-		event = "VeryLazy",
-		keys = {
-			{
-				"<S-Enter>",
-				function()
-					require("noice").redirect(vim.fn.getcmdline())
-				end,
-				mode = "c",
-				desc = "Redirect Cmdline",
-			},
-			{
-				"<leader>nl",
-				function()
-					require("noice").cmd("last")
-				end,
-				desc = "Noice Last Message",
-			},
-			{
-				"<leader>nh",
-				function()
-					require("noice").cmd("history")
-				end,
-				desc = "Noice History",
-			},
-			{
-				"<leader>na",
-				function()
-					require("noice").cmd("all")
-				end,
-				desc = "Noice All",
-			},
-			{
-				"<leader>nd",
-				function()
-					require("noice").cmd("dismiss")
-				end,
-				desc = "Dismiss All",
-			},
-			{
-				"<A-f>",
-				function()
-					if not require("noice.lsp").scroll(4) then
-						return "<c-f>"
-					end
-				end,
-				silent = true,
-				expr = true,
-				desc = "Scroll forward",
-				mode = { "i", "n", "s" },
-			},
-			{
-				"<A-b>",
-				function()
-					if not require("noice.lsp").scroll(-4) then
-						return "<c-b>"
-					end
-				end,
-				silent = true,
-				expr = true,
-				desc = "Scroll backward",
-				mode = { "i", "n", "s" },
-			},
-		},
-		config = function()
-			require("noice").setup({
-				messages = { enabled = false },
-				lsp = {
-					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true,
-					},
-					progress = {
-						-- enabled = false,
-						bottom_search = true, -- use a classic bottom cmdline for search
-						command_palette = true, -- position the cmdline and popupmenu together
-						long_message_to_split = true, -- long messages will be sent to a split
-						inc_rename = true, -- enables an input dialog for inc-rename.nvim
-						lsp_doc_border = true, -- add a border to hover docs and signature help
-					},
-					hover = {
-						enabled = false,
-					},
-				},
-				-- you can enable a preset for easier configuration
-				presets = {
-					bottom_search = false, -- use a classic bottom cmdline for search
-					command_palette = true, -- position the cmdline and popupmenu together
-					long_message_to_split = true, -- long messages will be sent to a split
-					inc_rename = false, -- enables an input dialog for inc-rename.nvim
-					lsp_doc_border = false, -- add a border to hover docs and signature help
-				},
-			})
-		end,
-	},
-	{
 		"stevearc/oil.nvim",
 		enabled = true,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -1236,4 +1196,37 @@ return {
 			},
 		},
 	},
+  {
+    "kevinhwang91/nvim-hlslens",
+    dependencies = {
+      "petertriho/nvim-scrollbar",
+    },
+    config = function()
+      require("scrollbar.handlers.search").setup({
+        auto_enable = true,
+        calm_down = true,
+      })
+      local kopts = { noremap = true, silent = true }
+      vim.api.nvim_set_keymap(
+        "n",
+        "n",
+        [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+        kopts
+      )
+      vim.api.nvim_set_keymap(
+        "n",
+        "N",
+        [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+        kopts
+      )
+      vim.api.nvim_set_keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.api.nvim_set_keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.api.nvim_set_keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.api.nvim_set_keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.api.nvim_set_keymap("n", "<leader>no", "<Cmd>noh<CR>", kopts)
+    end,
+  }
 }
+
+
+

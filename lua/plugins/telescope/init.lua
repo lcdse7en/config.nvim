@@ -3,7 +3,7 @@ local previewers = require('telescope.previewers')
 local builtin    = require('telescope.builtin')
 local icons      = EcoVim.icons
 
-require('telescope').load_extension('fzf')
+-- require('telescope').load_extension('fzf')
 require('telescope').load_extension('repo')
 require("telescope").load_extension("git_worktree")
 
@@ -63,11 +63,11 @@ require('telescope').setup {
     }
   },
   extensions = {
-    fzf = {
-      override_generic_sorter = false,
-      override_file_sorter = true,
-      case_mode = "smart_case",
-    }
+    -- fzf = {
+    --   override_generic_sorter = false,
+    --   override_file_sorter = true,
+    --   case_mode = "smart_case",
+    -- }
   }
 }
 
