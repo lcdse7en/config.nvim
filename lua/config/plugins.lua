@@ -756,6 +756,20 @@ return {
 	},
 	{
 		"NvChad/nvim-colorizer.lua",
+		enabled = true,
+		ft = {
+			"nix",
+			"vue",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"lua",
+			"scc",
+			"scss",
+			"typst",
+			"toml",
+		},
 		config = function()
 			require("plugins.colorizer")
 		end,
