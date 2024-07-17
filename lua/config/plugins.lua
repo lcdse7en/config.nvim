@@ -1125,6 +1125,7 @@ return {
 		init = function()
 			-- Your DBUI configuration
 			vim.g.db = "mysql://se7en:921216@127.0.0.1:3306/koreandrama"
+			vim.g.db_ui_confirm_exec = 0
 			vim.g.db_ui_disable_progress_bar = 1
 			vim.g.db_ui_use_postgres_views = 1
 			vim.g.db_ui_force_echo_notifications = 1

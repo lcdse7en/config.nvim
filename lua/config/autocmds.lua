@@ -375,13 +375,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-local function execute_sql()
-	if vim.bo.filetype == "mysql" then
-		vim.cmd("DBUIExecuteQuery")
-	end
-end
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = {"sql", "mysql"},
-	group = vim.api.nvim_create_augroup("DadbodExecuteOnSave", { clear = true }),
-	callback = execute_sql,
-})
+-- local function execute_sql()
+-- 	if vim.bo.filetype == "mysql" then
+-- 		vim.cmd("DBUIExecuteQuery")
+-- 	end
+-- end
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	pattern = {"sql", "mysql"},
+-- 	group = vim.api.nvim_create_augroup("DadbodExecuteOnSave", { clear = true }),
+-- 	callback = execute_sql,
+-- })
