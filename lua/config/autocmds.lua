@@ -375,13 +375,16 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- local function execute_sql()
--- 	if vim.bo.filetype == "mysql" then
--- 		vim.cmd("DBUIExecuteQuery")
--- 	end
--- end
--- vim.api.nvim_create_autocmd("BufWritePost", {
--- 	pattern = {"sql", "mysql"},
--- 	group = vim.api.nvim_create_augroup("DadbodExecuteOnSave", { clear = true }),
--- 	callback = execute_sql,
--- })
+
+_G.jump_out_bracket = function()
+	local col = vim.fn.col(".")
+	local line = vim.fn.getline(".")
+	local char = line:sub(col, col)
+	if char:match('[%)%]%}"\'"]') then
+		return vim.api.nvim_replace_termcodes("<Right>", true, true, true)
+	else
+		return vim.api.nvim_replace_termcodes("<C-l>", true, true, true)
+	end
+end
+vim.api.nvim_set_keymap("i", "<C-l>", "v:lua.jump_out_bracket()", { expr = true, noremap = true, silent = true })
+
