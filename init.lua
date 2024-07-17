@@ -14,18 +14,3 @@ require("config.lsp.functions")
 require("internal.winbar")
 require("internal.cursorword")
 require("internal.vmlens")
-
-
--- function ExecuteCurrentSQL()
---   vim.api.nvim_command('normal! vi:DB<CR>')
--- end
---
--- vim.api.nvim_exec(
--- 	[[
---   augroup DadbodAutoExecute
---     autocmd!
---     autocmd FileType mysql autocmd BufWritePost <buffer> lua ExecuteCurrentSQL()
---     augroup END
--- ]],
--- 	false
--- )
