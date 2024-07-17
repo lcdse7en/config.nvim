@@ -160,7 +160,7 @@ return {
 				build = "make install_jsregexp",
 				config = function()
 					require("luasnip.loaders.from_lua").load({
-						paths = { vim.fn.stdpath("config") .. "/snippets/lua/" },
+						paths = { vim.fn.stdpath("config") .. "/luasnip" },
 					})
 					require("luasnip.loaders.from_vscode").lazy_load({
 						paths = { vim.fn.stdpath("config") .. "/snippets" },
@@ -443,7 +443,7 @@ return {
 		config = function()
 			require("plugins.galaxyline")
 		end,
-    lazy = false,
+		lazy = false,
 		-- event = "VeryLazy",
 	},
 	{
@@ -1199,65 +1199,62 @@ return {
 			},
 		},
 	},
-  {
-    "kevinhwang91/nvim-hlslens",
-    dependencies = {
-      "petertriho/nvim-scrollbar",
-    },
-    config = function()
-      require("scrollbar.handlers.search").setup({
-        auto_enable = true,
-        calm_down = true,
-      })
-      local kopts = { noremap = true, silent = true }
-      vim.api.nvim_set_keymap(
-        "n",
-        "n",
-        [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-        kopts
-      )
-      vim.api.nvim_set_keymap(
-        "n",
-        "N",
-        [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-        kopts
-      )
-      vim.api.nvim_set_keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-      vim.api.nvim_set_keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-      vim.api.nvim_set_keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-      vim.api.nvim_set_keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-      vim.api.nvim_set_keymap("n", "<leader>no", "<Cmd>noh<CR>", kopts)
-    end,
-  },
-  {
-    'mikavilpas/yazi.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    event = 'VeryLazy',
-    keys = {
-      -- 👇 in this section, choose your own keymappings!
-      -- {
-      --   '<leader>sy',
-      --   function()
-      --     require('yazi').yazi()
-      --   end,
-      --   desc = 'Open the yazi file manager',
-      -- },
-      {
-        -- Open in the current working directory
-        '<leader>sy',
-        function()
-          require('yazi').yazi(nil, vim.fn.getcwd())
-        end,
-        desc = "Open yazi",
-      },
-    },
-    opts = {
-      open_for_directories = false,
-    },
-  },
+	{
+		"kevinhwang91/nvim-hlslens",
+		dependencies = {
+			"petertriho/nvim-scrollbar",
+		},
+		config = function()
+			require("scrollbar.handlers.search").setup({
+				auto_enable = true,
+				calm_down = true,
+			})
+			local kopts = { noremap = true, silent = true }
+			vim.api.nvim_set_keymap(
+				"n",
+				"n",
+				[[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+				kopts
+			)
+			vim.api.nvim_set_keymap(
+				"n",
+				"N",
+				[[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+				kopts
+			)
+			vim.api.nvim_set_keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+			vim.api.nvim_set_keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+			vim.api.nvim_set_keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+			vim.api.nvim_set_keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+			vim.api.nvim_set_keymap("n", "<leader>no", "<Cmd>noh<CR>", kopts)
+		end,
+	},
+	{
+		"mikavilpas/yazi.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		event = "VeryLazy",
+		keys = {
+			-- 👇 in this section, choose your own keymappings!
+			-- {
+			--   '<leader>sy',
+			--   function()
+			--     require('yazi').yazi()
+			--   end,
+			--   desc = 'Open the yazi file manager',
+			-- },
+			{
+				-- Open in the current working directory
+				"<leader>sy",
+				function()
+					require("yazi").yazi(nil, vim.fn.getcwd())
+				end,
+				desc = "Open yazi",
+			},
+		},
+		opts = {
+			open_for_directories = false,
+		},
+	},
 }
-
-
-

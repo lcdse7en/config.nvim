@@ -137,14 +137,14 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 --  NOTE: Jump out of parenthetical quotation marks
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = "*",
-	callback = function()
-		vim.cmd([[
-    inoremap <silent> ii <C-\><C-n>:call search('[>)\]}"'']', 'W')<CR>a
-     ]])
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.cmd([[
+--     inoremap <silent> ii <C-\><C-n>:call search('[>)\]}"'']', 'W')<CR>a
+--      ]])
+-- 	end,
+-- })
 
 --  NOTE: show cursor line only in active window
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
@@ -376,13 +376,12 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 local function execute_sql()
-	if vim.bo.filetype == "sql" then
+	if vim.bo.filetype == "mysql" then
 		vim.cmd("DBUIExecuteQuery")
 	end
 end
-vim.api.nvim_create_augroup("DadbodExecuteOnSave", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*sql",
-	group = "DadbodExecuteOnSave",
+	pattern = {"sql", "mysql"},
+	group = vim.api.nvim_create_augroup("DadbodExecuteOnSave", { clear = true }),
 	callback = execute_sql,
 })

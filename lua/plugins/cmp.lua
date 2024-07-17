@@ -26,13 +26,45 @@ if not copilot_comparators_status_ok then
   P("Failed to load copilot_cmp.comparators")
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+-- require("luasnip/loaders/from_vscode").lazy_load() -- load freindly-snippets
 require('luasnip.loaders.from_lua').load {
   paths = {
-    '~/.config/nvim/lua/snippets/lua/',
+    "~/.config/nvim/luasnip"
   },
 }
+vim.cmd [[command! LuaSnipEdit :lua require("luasnip.loaders").edit_snippet_files()]]
+vim.keymap.set('n', '<Leader><CR>', '<cmd>LuaSnipEdit<cr>', { silent = true, noremap = true })
 
+
+local auto_expand = require('luasnip').expand_auto
+require('luasnip').expand_auto = function(...)
+  vim.o.undolevels = vim.o.undolevels
+  auto_expand(...)
+end
+
+require('luasnip').config.set_config {
+  history = true, --  NOTE: keep around last snippet local to jump back
+  updateevents = 'TextChanged,TextChangedI', --  NOTE: update changes as you type (when using function)
+  region_check_events = 'CursorMoved, CursorHold, InsertEnter',
+  delete_check_events = 'TextChanged,InsertLeave',
+  enable_autosnippets = true,
+  store_selection_keys = '`',
+  ext_opts = {
+    [require('luasnip.util.types').choiceNode] = {
+      active = { virt_text = { { '●', 'DevIconCoffee' } } },
+      passive = { virt_text = { { '●', 'DevIconIni' } } },
+      sign = { 'LuaSnipChoiceListSelections' },
+    },
+    [require('luasnip.util.types').insertNode] = {
+      active = { virt_text = { { '●', 'DevIconOPUS' } } },
+      passive = { virt_text = { { '●', 'DevIconDefault' } } },
+    },
+    [require('luasnip.util.types').dynamicNode] = {
+      active = { virt_text = { { '●', 'DevIconSln' } } },
+      passive = { virt_text = { { '●', 'DevIconDefault' } } },
+    },
+  },
+}
 
 
 -- ╭──────────────────────────────────────────────────────────╮
