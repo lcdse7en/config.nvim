@@ -27,6 +27,13 @@ if not copilot_comparators_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
+require('luasnip.loaders.from_lua').load {
+  paths = {
+    '~/.config/nvim/lua/snippets/lua/',
+  },
+}
+
+
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Utils                                                    │

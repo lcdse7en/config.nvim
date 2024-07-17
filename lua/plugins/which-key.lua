@@ -79,6 +79,11 @@ local normal_mode_mappings = {
     name = 'Actions',
     n = { '<cmd>set nonumber!<CR>',                             'line numbers' },
     r = { '<cmd>set norelativenumber!<CR>',                     'relative number' },
+    s = {
+      name = 'Snippet(json)',
+      a = { '<cmd>lua require("scissors").addNewSnippet()<CR>', "Add new snippet" },
+      e = { '<cmd>lua require("scissors").editSnippet()<CR>', "Edit snippet" },
+    }
   },
 
   b = {

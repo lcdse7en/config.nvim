@@ -159,6 +159,9 @@ return {
 				dependencies = "rafamadriz/friendly-snippets",
 				build = "make install_jsregexp",
 				config = function()
+					require("luasnip.loaders.from_lua").load({
+						paths = { vim.fn.stdpath("config") .. "/snippets/lua/" },
+					})
 					require("luasnip.loaders.from_vscode").lazy_load({
 						paths = { vim.fn.stdpath("config") .. "/snippets" },
 					})
@@ -1225,7 +1228,35 @@ return {
       vim.api.nvim_set_keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
       vim.api.nvim_set_keymap("n", "<leader>no", "<Cmd>noh<CR>", kopts)
     end,
-  }
+  },
+  {
+    'mikavilpas/yazi.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    event = 'VeryLazy',
+    keys = {
+      -- 👇 in this section, choose your own keymappings!
+      -- {
+      --   '<leader>sy',
+      --   function()
+      --     require('yazi').yazi()
+      --   end,
+      --   desc = 'Open the yazi file manager',
+      -- },
+      {
+        -- Open in the current working directory
+        '<leader>sy',
+        function()
+          require('yazi').yazi(nil, vim.fn.getcwd())
+        end,
+        desc = "Open yazi",
+      },
+    },
+    opts = {
+      open_for_directories = false,
+    },
+  },
 }
 
 

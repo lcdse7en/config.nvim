@@ -19,8 +19,8 @@ keymap("n", "<C-l>", "<C-w>l", silent)
 keymap("n", "H", "^", silent)
 keymap("n", "L", "$", silent)
 
-keymap('x', '<', '<gv', { desc = 'One indent left and reselect' })
-keymap('x', '>', '>gv|', { desc = 'One indent right and reselect' })
+keymap("x", "<", "<gv", { desc = "One indent left and reselect" })
+keymap("x", ">", ">gv|", { desc = "One indent right and reselect" })
 
 -- Move selected line / block of text in visual mode
 keymap("x", "K", ":move '<-2<CR>gv-gv", silent)
