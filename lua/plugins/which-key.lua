@@ -81,8 +81,8 @@ local normal_mode_mappings = {
     r = { '<cmd>set norelativenumber!<CR>',                     'relative number' },
     s = {
       name = 'Snippet(json)',
-      a = { '<cmd>lua require("scissors").addNewSnippet()<CR>', "Add new snippet" },
-      e = { '<cmd>lua require("scissors").editSnippet()<CR>', "Edit snippet" },
+      a = { '<cmd>lua require("scissors").addNewSnippet()<CR>', "Add new snippet(json)" },
+      e = { '<cmd>lua require("scissors").editSnippet()<CR>', "Edit snippet(json)" },
     }
   },
 
