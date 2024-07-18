@@ -8,7 +8,12 @@ return {
 		local root_dir = vim.fn.fnamemodify(file_dir, ":h")
 		local font_dir = root_dir .. "/fonts"
 		local output_file = vim.fn.expand("%:p:r") .. ".pdf"
-
+		-- local project_root = vim.fn.finddir(".git", file_dir .. ";")
+		-- if project_root == "" then
+		-- 	project_root = cwd
+		-- else
+		-- 	project_root = vim.fn.fnamemodify(project_root, ":h") .. "/init-files"
+		-- end
 		return {
 			name = vim.fn.expand("%:t"),
 			cwd = file_dir,
@@ -22,7 +27,7 @@ return {
 			},
 			on_exit = function(_, return_val)
 				if return_val == 0 then
-					vim.api.nvim_command("silent !zathura " .. output_file .. " &")
+					vim.fn.jobstart({ "zathura", output_file }, { detach = true })
 				else
 					print("Typst compilation failed.")
 				end
