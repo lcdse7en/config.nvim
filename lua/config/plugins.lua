@@ -463,9 +463,6 @@ return {
 			"echasnovski/mini.bufremove",
 		},
 		version = "*",
-		config = function()
-			require("plugins.bufferline")
-		end,
 		keys = {
 			{ "<Space>1", "<cmd>BufferLineGoToBuffer 1<CR>" },
 			{ "<Space>2", "<cmd>BufferLineGoToBuffer 2<CR>" },
@@ -495,6 +492,9 @@ return {
 			{ "<Leader>bse", "<cmd>BufferLineSortByExtension<CR>", desc = "Sort by extension" },
 			{ "<Leader>bsr", "<cmd>BufferLineSortByRelativeDirectory<CR>", desc = "Sort by relative dir" },
 		},
+		config = function()
+			require("plugins.bufferline")
+		end,
 	},
 	{
 		"rcarriga/nvim-notify",
