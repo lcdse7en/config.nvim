@@ -25,13 +25,13 @@ return {
 				"on_exit_set_status",
 				"on_complete_notify",
 			},
-			on_exit = function(_, return_val)
-				if return_val == 0 then
-					vim.fn.jobstart({ "zathura", output_file }, { detach = true })
-				else
-					print("Typst compilation failed.")
-				end
-			end,
+			-- on_exit = function(_, return_val)
+			-- 	if return_val == 0 then
+			-- 		vim.fn.jobstart({ "zathura", output_file }, { detach = true })
+			-- 	else
+			-- 		print("Typst compilation failed.")
+			-- 	end
+			-- end,
 		}
 	end,
 }
