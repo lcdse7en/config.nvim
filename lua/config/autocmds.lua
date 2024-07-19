@@ -381,6 +381,9 @@ _G.jump_out_bracket = function()
 end
 vim.api.nvim_set_keymap("i", "<C-l>", "v:lua.jump_out_bracket()", { expr = true, noremap = true, silent = true })
 
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Transparent                                             │
+-- ╰─────────────────────────────────────────────────────────╯
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		vim.cmd("hi! Normal guibg=NONE ctermbg=NONE")
