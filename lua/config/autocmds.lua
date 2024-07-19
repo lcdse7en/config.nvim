@@ -368,6 +368,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+
 _G.jump_out_bracket = function()
 	local col = vim.fn.col(".")
 	local line = vim.fn.getline(".")
@@ -387,5 +388,24 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		vim.cmd("hi! LineNr guibg=NONE ctermbg=NONE")
 		vim.cmd("hi! SignColumn guibg=NONE ctermbg=NONE")
 		vim.cmd("hi! NormalFloat guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! NormalNC guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! MsgSeparator guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! ErrorMsg guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! NvimTreeNormal guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! NvimTreeWinSeparator guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! NvimTreeEndOfBuffer guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! CmpDocumentation guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! VertSplit guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! FloatBorder guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! WinBar guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! MsgArea guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! TelescopeNormal guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! Directory guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! LirFloatNormal guibg=NONE ctermbg=NONE")
+
+		vim.cmd("hi! NotifyERRORBodyNormal guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! NotifyWARNBodyNormal guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! NotifyINFOBodyNormal guibg=NONE ctermbg=NONE")
 	end,
 })
+
