@@ -2,16 +2,16 @@ return {
 	-- ╭─────────────────────────────────────────────────────────╮
 	-- │ Themes                                                  │
 	-- ╰─────────────────────────────────────────────────────────╯
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			-- load the colorscheme here
-			vim.cmd([[colorscheme tokyonight]])
-			require("config.colorscheme")
-		end,
-	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		-- load the colorscheme here
+	-- 		vim.cmd([[colorscheme tokyonight]])
+	-- 		require("config.colorscheme")
+	-- 	end,
+	-- },
 	{ "nvim-lua/plenary.nvim" },
 	{
 		"nvim-tree/nvim-web-devicons",
@@ -106,9 +106,9 @@ return {
 		end,
 	},
 	{
-		"gbprod/stay-in-place.nvim",
-		lazy = false,
-		config = true, -- run require("stay-in-place").setup()
+    "gbprod/stay-in-place.nvim",
+    lazy = false,
+    config = true, -- run require("stay-in-place").setup()
 	},
 	{
 		"chentoast/marks.nvim",
@@ -160,7 +160,7 @@ return {
 				build = "make install_jsregexp",
 				config = function()
 					require("luasnip.loaders.from_lua").load({
-						paths = { vim.fn.stdpath("config") .. "/luasnip" },
+						paths = { vim.fn.stdpath("config") .. "/snippets/lua" },
 					})
 					require("luasnip.loaders.from_vscode").lazy_load({
 						paths = { vim.fn.stdpath("config") .. "/snippets" },

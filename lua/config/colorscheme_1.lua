@@ -9,9 +9,8 @@ local c = require("tokyonight.colors").setup()
 -- │ Setup Colorscheme                                        │
 -- ╰──────────────────────────────────────────────────────────╯
 tokyonight.setup({
-  -- style = "night",
-  style = "Moon",
-  transparent = false,    -- Enable this to disable setting the background color
+  style = "night",
+  transparent = true,    -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
@@ -63,7 +62,7 @@ tokyonight.setup({
 })
 
 -- Set Colorscheme
-vim.cmd("colorscheme " .. EcoVim.colorscheme)
+-- vim.cmd("colorscheme " .. EcoVim.colorscheme)
 
 -- Ecovim Colors
 vim.api.nvim_set_hl(0, "EcovimPrimary", { fg = "#488dff" })

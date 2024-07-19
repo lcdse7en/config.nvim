@@ -1,7 +1,8 @@
 local icons = require("utils.icons")
 
 EcoVim = {
-  colorscheme = "tokyonight",
+  -- colorscheme = "tokyonight",
+  colorscheme = "darkplus",
   ui = {
     float = {
       border = "rounded",

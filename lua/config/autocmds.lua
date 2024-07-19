@@ -45,14 +45,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		pwk.attach_npm(0)
 	end,
 })
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = "*",
--- 	callback = function()
--- 		if EcoVim.plugins.zen.enabled and vim.bo.filetype ~= "alpha" then
--- 			pwk.attach_zen(0)
--- 		end
--- 	end,
--- })
+
 vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = { "*test.js", "*test.ts", "*test.tsx" },
 	callback = function()
@@ -375,7 +368,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-
 _G.jump_out_bracket = function()
 	local col = vim.fn.col(".")
 	local line = vim.fn.getline(".")
@@ -388,3 +380,12 @@ _G.jump_out_bracket = function()
 end
 vim.api.nvim_set_keymap("i", "<C-l>", "v:lua.jump_out_bracket()", { expr = true, noremap = true, silent = true })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.cmd("hi! Normal guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! Nontext guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! LineNr guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! SignColumn guibg=NONE ctermbg=NONE")
+		vim.cmd("hi! NormalFloat guibg=NONE ctermbg=NONE")
+	end,
+})

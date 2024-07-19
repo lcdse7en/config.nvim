@@ -54,7 +54,7 @@ require('tokyonight').setup {
 }
 
 -- Set Colorscheme
-vim.cmd('colorscheme ' .. EcoVim.colorscheme)
+-- vim.cmd('colorscheme ' .. EcoVim.colorscheme)
 
 -- Ecovim Colors
 vim.api.nvim_set_hl(0, 'EcovimPrimary', { fg = '#488dff' })

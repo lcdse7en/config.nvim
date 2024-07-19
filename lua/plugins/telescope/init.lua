@@ -20,6 +20,7 @@ local git_icons = {
 require('telescope').setup {
   defaults = {
     border            = true,
+    winblend          = 10, -- 设置背景透明度
     hl_result_eol     = true,
     multi_icon        = '',
     vimgrep_arguments = {
@@ -120,7 +121,7 @@ M.edit_neovim = function()
       previewer        = false,
       prompt_title     = "Ecovim Dotfiles",
       sorting_strategy = "ascending",
-      winblend         = 4,
+      winblend         = 10,
       layout_config    = {
         horizontal = {
           mirror = false,
