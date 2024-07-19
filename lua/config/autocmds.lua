@@ -368,7 +368,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Jump out                                                │
+-- ╰─────────────────────────────────────────────────────────╯
 _G.jump_out_bracket = function()
 	local col = vim.fn.col(".")
 	local line = vim.fn.getline(".")
@@ -411,4 +413,3 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		vim.cmd("hi! NotifyINFOBodyNormal guibg=NONE ctermbg=NONE")
 	end,
 })
-
