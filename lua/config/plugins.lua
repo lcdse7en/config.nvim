@@ -12,6 +12,11 @@ return {
 	-- 		require("config.colorscheme")
 	-- 	end,
 	-- },
+	{
+		"LunarVim/darkplus.nvim",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
+	},
 	{ "nvim-lua/plenary.nvim" },
 	{
 		"nvim-tree/nvim-web-devicons",
@@ -106,9 +111,9 @@ return {
 		end,
 	},
 	{
-    "gbprod/stay-in-place.nvim",
-    lazy = false,
-    config = true, -- run require("stay-in-place").setup()
+		"gbprod/stay-in-place.nvim",
+		lazy = false,
+		config = true, -- run require("stay-in-place").setup()
 	},
 	{
 		"chentoast/marks.nvim",
