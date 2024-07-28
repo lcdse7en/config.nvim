@@ -165,7 +165,7 @@ return {
 				build = "make install_jsregexp",
 				config = function()
 					require("luasnip.loaders.from_lua").load({
-						paths = { vim.fn.stdpath("config") .. "/snippets/lua" },
+						paths = { vim.fn.stdpath("config") .. "/snippets" },
 					})
 					require("luasnip.loaders.from_vscode").lazy_load({
 						paths = { vim.fn.stdpath("config") .. "/snippets" },
@@ -564,9 +564,9 @@ return {
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		event = "VeryLazy",
 		config = true,
-    -- ╭─────────────────────────────────────────────────────────╮
-    -- │ cs'" | ds" | ysiw                                       │
-    -- ╰─────────────────────────────────────────────────────────╯
+		-- ╭─────────────────────────────────────────────────────────╮
+		-- │ cs'" | ds" | ysiw                                       │
+		-- ╰─────────────────────────────────────────────────────────╯
 	},
 	{
 		"kevinhwang91/nvim-ufo",
