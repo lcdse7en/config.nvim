@@ -47,9 +47,9 @@ keymap("n", "<ESC>", ":noh<CR><CR>", silent)
 
 -- Find word/file across project
 keymap(
-	"n",
-	"<Leader>pf",
-	"<CMD>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>"
+  "n",
+  "<Leader>pf",
+  "<CMD>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>"
 )
 keymap("n", "<Leader>pw", "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>")
 
@@ -87,47 +87,75 @@ keymap("n", "<Space>.", ":cn<CR>", silent)
 -- Manually invoke speeddating in case switch.vim didn't work
 keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)
 keymap(
-	"n",
-	"<C-x>",
-	":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>",
-	silent
+  "n",
+  "<C-x>",
+  ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>",
+  silent
 )
 
 -- Open links under cursor in browser with gx
 if vim.fn.has("macunix") == 1 then
-	keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<CR>", silent)
+  keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<CR>", silent)
 else
-	keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", silent)
+  keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", silent)
 end
+
+
+-- which-key
+keymap("n", "<leader>/c", "<cmd>e $MYVIMRC<CR>", { silent = true, desc = "open vimrc" })
+keymap("n", "<leader>/u", "<cmd>Lazy update<CR>", { silent = true, desc = "update plugins" })
+
+keymap("n", "<leader>an", "<cmd>set nonumber!<CR>", { silent = true, desc = "line numbers" })
+keymap("n", "<leader>ar", "<cmd>set norelativenumber!<CR>", { silent = true, desc = "relative number" })
+keymap("n", "<leader>asa", '<cmd>lua require("scissors").addNewSnippet()<CR>', { silent = true, desc = "Add new snippet(json)" })
+keymap("n", "<leader>ase", '<cmd>lua require("scissors").editSnippet()<CR>', { silent = true, desc = "Edit snippet(json)" })
+
+keymap("n", "<leader>bc", '<cmd>lua require("utils").closeOtherBuffers()<CR>', { silent = true, desc = "Close but current" })
+keymap("n", "<leader>bf", '<cmd>bfirst<CR>', { silent = true, desc = "First buffer" })
+
+keymap("n", "<leader>sb", "<cmd>silent BrowseBookmarks<CR>", { silent = true, desc = "Browse bookmarks" })
+keymap("n", "<leader>sc", "<cmd>Telescope colorscheme<CR>", { silent = true, desc = "Color schemes" })
+keymap("n", "<leader>sd", '<cmd>lua require("plugins.telescope").edit_neovim()<CR>',
+  { silent = true, desc = "nvim dotfiles" })
+keymap("n", "<leader>sg", '<cmd>lua require("telescope").extensions.live_grep_args.live_grep_args()<cr>',
+  { silent = true, desc = "Find text" })
+keymap("n", "<leader>sh", '<cmd>Telescope oldfiles hidden=true<CR>', { silent = true, desc = "File history" })
+keymap("n", "<leader>sH", '<cmd>lua require("plugins.telescope").command_history()<CR>',
+  { silent = true, desc = "Command history" })
+keymap("n", "<leader>ss", '<cmd>Telescope search_history theme=dropdown<CR>', { silent = true, desc = "search history" })
+keymap("n", "<leader>sq", '<cmd>Telescope quickfix<CR>', { silent = true, desc = "quickfix list" })
 
 -- LSP
 -- keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent) -- Replaced with Glance plugin
 -- keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", silent) -- Replaced with Glance plugin
 keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
-keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
-keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", silent)
-keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", silent)
-keymap("n", "<leader>cf", "<cmd>lua require('config.lsp.functions').format()<CR>", silent)
+keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true, desc = "Code action" })
+keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", { silent = true, desc = "Code action" })
+keymap("n", "<leader>cd", "<cmd>TroubleToggle<CR>", { silent = true, desc = "local diagnostics" })
+keymap("n", "<leader>cD", "<cmd>Telescope diagnostics wrap_results=true<CR>", { silent = true, desc = "workspace diagnostics" })
+keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true, desc = "rename" })
+keymap("n", "<leader>ct", "<cmd>LspToggleAutoFormat<CR>", { silent = true, desc = "toggle format on save" })
+keymap("n", "<leader>cf", "<cmd>lua require('config.lsp.functions').format()<CR>", { silent = true, desc = "Lsp Format" })
 keymap("v", "<leader>cf", function()
-	local start_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, "<"))
-	local end_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, ">"))
+  local start_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, "<"))
+  local end_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, ">"))
 
-	vim.lsp.buf.format({
-		range = {
-			["start"] = { start_row, 0 },
-			["end"] = { end_row, 0 },
-		},
-		async = true,
-	})
+  vim.lsp.buf.format({
+    range = {
+      ["start"] = { start_row, 0 },
+      ["end"] = { end_row, 0 },
+    },
+    async = true,
+  })
 end, silent)
-keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
+keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", {silent = true, desc = "line diagnostics"})
 keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
 -- keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "K", function()
-	local winid = require("ufo").peekFoldedLinesUnderCursor()
-	if not winid then
-		vim.lsp.buf.hover()
-	end
+  local winid = require("ufo").peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover()
+  end
 end)
