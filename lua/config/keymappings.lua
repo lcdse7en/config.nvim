@@ -92,24 +92,6 @@ else
 	keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", silent)
 end
 
--- {
--- 	"nvim-pack/nvim-spectre",
--- 	lazy = true,
--- 	keys = {
--- 		{
--- 			"<Leader>pr",
--- 			"<cmd>lua require('spectre').open_visual({select_word=true})<CR>",
--- 			desc = "refactor",
--- 		},
--- 		{
--- 			"<Leader>pr",
--- 			"<cmd>lua require('spectre').open_visual()<CR>",
--- 			mode = "v",
--- 			desc = "refactor",
--- 		},
--- 	},
--- },
-
 -- which-key
 keymap("n", "<leader>/c", "<cmd>e $MYVIMRC<CR>", { silent = true, desc = "open vimrc" })
 keymap("n", "<leader>/u", "<cmd>Lazy update<CR>", { silent = true, desc = "update plugins" })
