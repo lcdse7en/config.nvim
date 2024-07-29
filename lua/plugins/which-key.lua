@@ -65,6 +65,10 @@ wk.add({
 		group = "Debug",
 	},
 	{
+		"<leader>e",
+		group = "Edit file",
+	},
+	{
 		"<leader>f",
 		group = "Format",
 	},
