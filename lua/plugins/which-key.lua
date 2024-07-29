@@ -83,6 +83,10 @@ wk.add({
 		group = "Noice",
 	},
 	{
+		"<leader>p",
+		group = "Project",
+	},
+	{
 		"<leader>r",
 		group = "Refactor",
 	},
