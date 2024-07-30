@@ -101,6 +101,13 @@ keymap("n", "<leader>-", "<cmd>vertical resize -5<CR>", { silent = true, desc = 
 keymap("n", "<leader>v", "<C-W>v", { silent = true, desc = "split right" })
 keymap("n", "<leader>V", "<C-W>s", { silent = true, desc = "split below" })
 
+
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Edit file                                               │
+-- ╰─────────────────────────────────────────────────────────╯
+keymap("n", "<leader>aap", "<cmd>e ~/.config/nvim/lua/config/plugins.lua<CR>", { silent = true, desc = "edit plugins.lua" })
+keymap("n", "<leader>aaw", "<cmd>e ~/.config/nvim/lua/plugins/which-key.lua<CR>", { silent = true, desc = "edit which-key.lua" })
+
 keymap("n", "<leader>an", "<cmd>set nonumber!<CR>", { silent = true, desc = "line numbers" })
 keymap("n", "<leader>ar", "<cmd>set norelativenumber!<CR>", { silent = true, desc = "relative number" })
 keymap(

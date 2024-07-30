@@ -53,6 +53,10 @@ wk.add({
 		group = "Snippet(json)",
 	},
 	{
+		"<leader>aa",
+		group = "Edit file",
+	},
+	{
 		"<leader>b",
 		group = "Buffer",
 	},
@@ -63,10 +67,6 @@ wk.add({
 	{
 		"<leader>d",
 		group = "Debug",
-	},
-	{
-		"<leader>e",
-		group = "Edit file",
 	},
 	{
 		"<leader>f",
