@@ -24,6 +24,7 @@ mason_lsp.setup({
     "html",
     -- "jsonls",
     "lua_ls",
+    "tinymist", -- typst LSP
     "prismals",
     "tailwindcss",
     -- "tsserver"
@@ -123,6 +124,15 @@ require("mason-lspconfig").setup_handlers {
       handlers = handlers,
       on_attach = on_attach,
       settings = require("config.lsp.servers.lua_ls").settings,
+    })
+  end,
+
+  ["tinymist"] = function()
+    lspconfig.lua_ls.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = on_attach,
+      settings = require("config.lsp.servers.tinymist").settings,
     })
   end,
 
