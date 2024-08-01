@@ -42,6 +42,11 @@ mason_lsp.setup({
 
 local lspconfig = require("lspconfig")
 
+-- lspconfig.tinymist.setup {
+--   cmd = {"tinymist-language-server", "--stdio"},
+--   filetypes = {"typst"},
+-- }
+
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     silent = true,

@@ -5,7 +5,7 @@ vim.api.nvim_set_hl(0, "NavicSeparator", { link = "Comment" })
 
 navic.setup({
 	lsp = {
-		auto_attach = true,
+		auto_attach = false,
 		preference = nil,
 	},
 	highlight = true,
