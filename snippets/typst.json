@@ -1,1 +1,1 @@
-{}
+{"n5":{"body":"⑤ $1","prefix":"n5"},"n1":{"body":"① $1","prefix":"n1"},"n4":{"body":"④ $1","prefix":"n4"},"n2":{"body":"② $1","prefix":"n2"},"myenum":{"body":["#for item in (","  \"$1\",","  \"$2\",",") [+ #v(-1.6pt) #item]"],"prefix":"myenum"},"h3":{"body":["#v(-4em)","=== $1"],"prefix":"h3"},"n3":{"body":"③ $1","prefix":"n3"},"h2":{"body":"== $1","prefix":"h2"}}
