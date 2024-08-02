@@ -8,6 +8,7 @@ local opts = {
 		python = { "isort", "black" },
 		typst = { "typstyle" },
 		sh = { "shfmt" },
+		toml = { "taplo" },
 		json = { "jq" },
 		jsonc = { "prettierd" },
 		html = prettier,
