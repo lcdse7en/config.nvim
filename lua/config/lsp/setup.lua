@@ -15,6 +15,9 @@ mason.setup({
 	},
 })
 
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ LSP                                                     │
+-- ╰─────────────────────────────────────────────────────────╯
 mason_lsp.setup({
 	-- A list of servers to automatically install if they're not already installed
 	ensure_installed = {
@@ -41,6 +44,9 @@ mason_lsp.setup({
 	automatic_installation = true,
 })
 
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Formatter                                               │
+-- ╰─────────────────────────────────────────────────────────╯
 mason_tool_installer.setup({
 	ensure_installed = {
 		"shfmt", -- shell formatter
