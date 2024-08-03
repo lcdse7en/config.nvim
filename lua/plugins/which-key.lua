@@ -83,6 +83,10 @@ wk.add({
 		hidden = false,
 	},
 	{
+		"<leader>i",
+		group = "img-clip",
+	},
+	{
 		"<leader>n",
 		group = "Noice",
 	},

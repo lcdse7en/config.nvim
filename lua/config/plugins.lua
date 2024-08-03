@@ -357,19 +357,23 @@ return {
 				show_name = false,
 			},
 		},
+		cmd = {
+			"MCstart",
+			"MCvisual",
+			"MCclear",
+			"MCpattern",
+			"MCvisualPattern",
+			"MCunderCursor",
+		},
 		keys = {
 			{
+				mode = { "v", "n" },
 				"<LEADER>m",
 				"<CMD>MCstart<CR>",
 				desc = "multicursor",
 			},
 			{
-				"<LEADER>m",
-				"<CMD>MCvisual<CR>",
-				mode = "v",
-				desc = "multicursor",
-			},
-			{
+				mode = { "v", "n" },
 				"<C-Down>",
 				"<CMD>MCunderCursor<CR>",
 				desc = "multicursor down",
@@ -603,6 +607,9 @@ return {
 			require("plugins.printer")
 		end,
 	},
+	-- ╭─────────────────────────────────────────────────────────╮
+	-- │ Indent                                                  │
+	-- ╰─────────────────────────────────────────────────────────╯
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufReadPre",
@@ -1340,21 +1347,21 @@ return {
 			end)
 		end,
 	},
-	{
-		"mg979/vim-visual-multi",
-		keys = {
-			"<C-n>",
-			"<C-Up>",
-			"<C-Down>",
-			"<S-Up>",
-			"<S-Down>",
-			"<S-Left>",
-			"<S-Right>",
-		},
-		config = function()
-			vim.g.VM_theme = "codedark"
-		end,
-	},
+	-- {
+	-- 	"mg979/vim-visual-multi",
+	-- 	keys = {
+	-- 		"<C-n>",
+	-- 		"<C-Up>",
+	-- 		"<C-Down>",
+	-- 		"<S-Up>",
+	-- 		"<S-Down>",
+	-- 		"<S-Left>",
+	-- 		"<S-Right>",
+	-- 	},
+	-- 	config = function()
+	-- 		vim.g.VM_theme = "codedark"
+	-- 	end,
+	-- },
 	{
 		"winter-again/wezterm-config.nvim",
 		config = function()
@@ -1427,8 +1434,15 @@ return {
 			watermark = "",
 			bg_x_padding = 122,
 			bg_y_padding = 82,
-      bg_padding = nil,
+			bg_padding = nil,
 			-- bg_theme = "bamboo",
 		},
+	},
+	{
+		"HakonHarnes/img-clip.nvim",
+		keys = {
+			{ "<leader>ip", "<cmd>PasteImage<cr>", desc = "Paste clipboard image" },
+		},
+		opts = {},
 	},
 }
