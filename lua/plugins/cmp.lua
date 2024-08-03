@@ -27,6 +27,7 @@ if not copilot_comparators_status_ok then
 end
 
 -- require("luasnip/loaders/from_vscode").lazy_load() -- load freindly-snippets
+luasnip.config.setup({})
 require('luasnip.loaders.from_lua').load {
   paths = {
     "~/.config/nvim/luasnip"
