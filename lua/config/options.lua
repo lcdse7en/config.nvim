@@ -47,8 +47,7 @@ local options = {
   incsearch      = true,                    --- Start searching before pressing enter
   showmode       = false,                   --- Don't show things like -- INSERT -- anymore
   list           = true,
-  listchars      = { tab = '▏ ', trail = '·' },
-
+  listchars      = { tab = '> ', trail = ' ', nbsp = '+', },
 }
 
 local globals = {
