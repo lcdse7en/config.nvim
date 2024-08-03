@@ -167,14 +167,6 @@ return {
 				"L3MON4D3/LuaSnip",
 				dependencies = "rafamadriz/friendly-snippets",
 				build = "make install_jsregexp",
-				config = function()
-					require("luasnip.loaders.from_lua").load({
-						paths = { vim.fn.stdpath("config") .. "/snippets" },
-					})
-					require("luasnip.loaders.from_vscode").lazy_load({
-						paths = { vim.fn.stdpath("config") .. "/snippets" },
-					})
-				end,
 			},
 			{
 				cond = EcoVim.plugins.ai.tabnine.enabled,
@@ -1158,35 +1150,33 @@ return {
 			"DBUIAddConnection",
 			"DBUIFindBuffer",
 		},
+		keys = {
+			{ "<leader>D", "<cmd>DBUIToggle<CR>", desc = "Toggle DBUI" },
+		},
 		init = function()
+			local data_path = vim.fn.stdpath("data")
+
+			vim.g.db_ui_auto_execute_table_helpers = 1
+			vim.g.db_ui_save_location = data_path .. "/dadbod_ui"
+			vim.g.db_ui_show_database_icon = true
+			vim.g.db_ui_tmp_query_location = data_path .. "/dadbod_ui/tmp"
+			vim.g.db_ui_use_nerd_fonts = true
+			vim.g.db_ui_use_nvim_notify = false
+			vim.g.db_ui_execute_on_save = true
+			vim.g.db_ui_disable_progress_bar = false
 			-- Your DBUI configuration
 			vim.g.db = "mysql://se7en:921216@127.0.0.1:3306/koreandrama"
 			vim.g.db_ui_confirm_exec = 0
-			vim.g.db_ui_disable_progress_bar = 1
 			vim.g.db_ui_use_postgres_views = 1
 			vim.g.db_ui_force_echo_notifications = 1
 			vim.g.db_ui_show_help = 0
 			vim.g.db_ui_win_position = "left"
-			vim.g.db_ui_use_nerd_fonts = 1
-			vim.g.db_ui_use_nvim_notify = 1
-			vim.g.db_ui_execute_on_save = false
-
-			vim.g.db_ui_save_location = "~/Dropbox/dbui"
-			vim.g.db_ui_tmp_query_location = "~/code/queries"
 
 			vim.g.db_ui_hide_schemas = { "pg_toast_temp.*" }
 
-			vim.g.db_ui_auto_execute_table_helpers = 1
 			vim.g.db_ui_winwidth = 40
 			vim.g.db_ui_notification_width = 36
 			vim.g.db_ui_default_query = 'select * from "{table}" limit 10'
-
-			vim.g.completion_matching_strategy_list = { "exact", "substring" }
-			vim.g.completion_matching_ignore_case = 1
-			vim.g.completion_use_svv = 1
-
-			vim.keymap.set("n", "[s", "<Plug>(DBUI_GotoPrevSibling)")
-			vim.keymap.set("n", "]s", "<Plug>(DBUI_GotoNextSibling)")
 		end,
 	},
 	{
@@ -1422,5 +1412,16 @@ return {
 				dapSharedKeymaps = false,
 			})
 		end,
+	},
+	{
+		"mistricky/codesnap.nvim",
+		build = "make",
+		cmd = { "CodeSnap", "CodeSnapASCII" },
+		opts = {
+			has_breadcrumbs = true,
+			watermark = "",
+			bg_x_padding = 15,
+			bg_y_padding = 15,
+		},
 	},
 }
