@@ -1,5 +1,9 @@
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = {
+    "lua",
+    "python",
+    "typst",
+    "toml",
     "tsx",
     "typescript",
     "javascript",
@@ -12,9 +16,6 @@ require 'nvim-treesitter.configs'.setup {
     "graphql",
     "json",
     "json5",
-    "lua",
-    "python",
-    "typst",
     "markdown",
     "prisma",
     "vim",
