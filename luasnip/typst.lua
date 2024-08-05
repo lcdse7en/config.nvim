@@ -94,4 +94,34 @@ return {
       }
     )
   ),
+  s(
+    {
+      trig = "mypb",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "mypb",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+      #pagebreak()
+      <>
+      ]],
+      {
+        i(0)
+      }
+    )
+  ),
 }
