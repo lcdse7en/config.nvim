@@ -124,4 +124,34 @@ return {
       }
     )
   ),
+  s(
+    {
+      trig = "mynt",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "mynt",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+      //  <>: <>
+      ]],
+      {
+        c(1, { t "NOTE", t"TODO", t "ISSUE"}),
+        i(2),
+      }
+    )
+  ),
 }
