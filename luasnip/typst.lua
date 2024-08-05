@@ -96,9 +96,9 @@ return {
   ),
   s(
     {
-      trig = "mypb",
+      trig = 'mypb',
       regTrig = false,
-      snippetType = "snippet",
+      snippetType = 'snippet',
     },
     fmta(
       [[
@@ -109,9 +109,9 @@ return {
   ),
   s(
     {
-      trig = "mypb",
-      regTrig=false,
-      snippetType = "autosnippet",
+      trig = 'mypb',
+      regTrig = false,
+      snippetType = 'autosnippet',
       priority = 2000,
     },
     fmta(
@@ -120,7 +120,7 @@ return {
       <>
       ]],
       {
-        i(0)
+        i(0),
       }
     )
   ),
