@@ -105,7 +105,9 @@ keymap("n", "<leader>V", "<C-W>s", { silent = true, desc = "split below" })
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ Edit file                                               │
 -- ╰─────────────────────────────────────────────────────────╯
+keymap("n", "<leader>aak", "<cmd>e ~/.config/nvim/lua/config/keymappings.lua.lua<CR>", { silent = true, desc = "edit keymappings.lua" })
 keymap("n", "<leader>aap", "<cmd>e ~/.config/nvim/lua/config/plugins.lua<CR>", { silent = true, desc = "edit plugins.lua" })
+keymap("n", "<leader>aat", "<cmd>e ~/.config/nvim/luasnip/typst.lua<CR>", { silent = true, desc = "edit snippet typst.lua" })
 keymap("n", "<leader>aaw", "<cmd>e ~/.config/nvim/lua/plugins/which-key.lua<CR>", { silent = true, desc = "edit which-key.lua" })
 
 keymap("n", "<leader>an", "<cmd>set nonumber!<CR>", { silent = true, desc = "line numbers" })
