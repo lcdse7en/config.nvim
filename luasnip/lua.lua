@@ -32,6 +32,19 @@ return {
         s(
           {
             trig = "<>",
+            regTrig = false,
+            snippetType = "snippet",
+          },
+          fmta(
+            <>
+
+            <>,
+            {}
+          )
+        ),
+        s(
+          {
+            trig = "<>",
             regTrig=false,
             snippetType = "autosnippet",
             priority = 2000,
@@ -49,9 +62,12 @@ return {
       {
         i(1, 'key'),
         t '[[',
+        t ']]',
+        rep(1),
+        t '[[',
         i(2),
         t ']]',
-        i(0),
+        i(3),
       }
     )
   ),
@@ -711,7 +727,7 @@ return {
   ),
   s(
     {
-      trig = 'mytd',
+      trig = 'mynt',
       regTrig = false,
       snippetType = 'autosnippet',
       priority = 2000,
