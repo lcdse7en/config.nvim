@@ -70,7 +70,7 @@ wk.add({
 	},
 	{
 		"<leader>f",
-		group = "Format",
+		group = "Search",
 	},
 	{
 		"<leader>g",
@@ -87,10 +87,13 @@ wk.add({
 		group = "img-clip",
 	},
 	{
+		"<leader>m",
+		group = "Search Marks",
+	},
+	{
 		"<leader>n",
 		group = "Noice",
 	},
-
 	{
 		"<leader>o",
 		group = "Overseer",
@@ -105,7 +108,7 @@ wk.add({
 	},
 	{
 		"<leader>s",
-		group = "Search",
+		group = "Format",
 	},
 	{
 		"<leader>t",

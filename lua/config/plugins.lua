@@ -368,7 +368,7 @@ return {
     keys = {
       {
         mode = { 'v', 'n' },
-        '<LEADER>m',
+        '<LEADER>e',
         '<CMD>MCstart<CR>',
         desc = 'multicursor',
       },
@@ -559,14 +559,45 @@ return {
       { '<Leader>pS', '<cmd>SessionManager save_current_session<CR>', desc = 'save session' },
     },
   },
+  -- {
+  --   'kylechui/nvim-surround',
+  --   version = '*', -- Use for stability; omit to use `main` branch for the latest features
+  --   event = 'VeryLazy',
+  --   config = true,
+  --   -- ╭─────────────────────────────────────────────────────────╮
+  --   -- │ cs'" | ds" | ysiw                                       │
+  --   -- ╰─────────────────────────────────────────────────────────╯
+  -- },
   {
-    'kylechui/nvim-surround',
-    version = '*', -- Use for stability; omit to use `main` branch for the latest features
-    event = 'VeryLazy',
-    config = true,
-    -- ╭─────────────────────────────────────────────────────────╮
-    -- │ cs'" | ds" | ysiw                                       │
-    -- ╰─────────────────────────────────────────────────────────╯
+    'echasnovski/mini.surround',
+    keys = function(_, keys)
+      -- Populate the keys based on the user's options
+      local plugin = require('lazy.core.config').spec.plugins['mini.surround']
+      local opts = require('lazy.core.plugin').values(plugin, 'opts', false)
+      local mappings = {
+        { opts.mappings.add, desc = 'Add surrounding', mode = { 'n', 'v' } },
+        { opts.mappings.delete, desc = 'Delete surrounding' },
+        { opts.mappings.find, desc = 'Find right surrounding' },
+        { opts.mappings.find_left, desc = 'Find left surrounding' },
+        { opts.mappings.highlight, desc = 'Highlight surrounding' },
+        { opts.mappings.replace, desc = 'Replace surrounding' },
+        { opts.mappings.update_n_lines, desc = 'Update `MiniSurround.config.n_lines`' },
+      }
+      mappings = vim.tbl_filter(function(m)
+        return m[1] and #m[1] > 0
+      end, mappings)
+      return vim.list_extend(mappings, keys)
+    end,
+    opts = {
+      mappings = {
+        add = 'ys', -- Add surrounding in Normal and Visual modes
+        delete = 'ds', -- Delete surrounding
+        replace = 'cs', -- Replace surrounding
+      },
+    },
+    config = function(_, opts)
+      require('mini.surround').setup(opts)
+    end,
   },
   {
     'kevinhwang91/nvim-ufo',
@@ -1275,7 +1306,7 @@ return {
       -- },
       {
         -- Open in the current working directory
-        '<leader>sy',
+        '<leader>fy',
         function()
           require('yazi').yazi(nil, vim.fn.getcwd())
         end,
