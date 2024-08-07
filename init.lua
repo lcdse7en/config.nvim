@@ -1,18 +1,18 @@
-require("config.EcoVim")
+require 'config.EcoVim'
 
-require("utils.globals")
-require("utils.functions")
+require 'utils.globals'
+require 'utils.functions'
 
-require("config.options")
-require("config.lazy")
-require("config.keymappings")
-require("config.autocmds")
-require("config.colorscheme")
-require("config.lsp.config")
-require("config.lsp.setup")
-require("config.lsp.functions")
+require 'config.options'
+require 'config.lazy'
+require 'config.keymappings'
+require 'config.autocmds'
+require 'config.colorscheme'
+require 'config.lsp.config'
+require 'config.lsp.setup'
+require 'config.lsp.functions'
 
-require("internal.winbar")
-require("internal.cursorword")
-require("internal.vmlens")
-require("internal.CodeRunning")
+require 'internal.winbar'
+require 'internal.cursorword'
+require 'internal.vmlens'
+require 'internal.CodeRunning'
