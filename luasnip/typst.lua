@@ -1,9 +1,10 @@
 --*******************************************
 -- Author:      lcdse7en                    *
--- E-mail:      2353442022@qq.com           *
--- Date:        2023-05-12                  *
+-- Gmail:       seenliang969@gmail.com      *
+-- Date:        2024-08-07                  *
 -- Description:                             *
 --*******************************************
+--  ISSUE: Gmail: seenliang969@gmail.com to see at YouTube 1190
 local ls = require 'luasnip'
 local s = ls.snippet
 local sn = ls.snippet_node

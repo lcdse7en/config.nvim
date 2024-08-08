@@ -124,6 +124,12 @@ keymap(
 )
 keymap(
   'n',
+  '<leader>aao',
+  '<cmd>e ~/.config/nvim/lua/config/options.lua<CR>',
+  { silent = true, desc = 'edit options.lua' }
+)
+keymap(
+  'n',
   '<leader>aap',
   '<cmd>e ~/.config/nvim/lua/config/plugins.lua<CR>',
   { silent = true, desc = 'edit plugins.lua' }
@@ -239,9 +245,9 @@ keymap('n', '<leader>ms', '<cmd>silent BookmarkShowAll<CR>', { silent = true, de
 keymap('n', '<leader>mt', '<cmd>silent BookmarkToggle<CR>', { silent = true, desc = 'Marks toggle' })
 keymap('n', '<leader>mx', '<cmd>BookmarkClearAll<CR>', { silent = true, desc = 'Marks Clear All' })
 
--- LSP
--- keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent) -- Replaced with Glance plugin
--- keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", silent) -- Replaced with Glance plugin
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ LSP Keymap                                              │
+-- ╰─────────────────────────────────────────────────────────╯
 keymap('n', '<C-Space>', '<cmd>lua vim.lsp.buf.code_action()<CR>', silent)
 keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { silent = true, desc = 'Code action' })
 keymap('v', '<leader>ca', "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", { silent = true, desc = 'Code action' })
