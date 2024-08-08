@@ -1,3 +1,9 @@
+--  TODO: Gmail: seenliang969@gmail.com
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ YouTube | ChatGPT | Github                              │
+-- ╰─────────────────────────────────────────────────────────╯
+
+
 require 'config.EcoVim'
 
 require 'utils.globals'
