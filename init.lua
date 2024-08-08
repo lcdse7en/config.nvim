@@ -1,6 +1,7 @@
 --  TODO: Gmail: seenliang969@gmail.com
+--  TODO: qq: 2353442022@qq.com
 -- ╭─────────────────────────────────────────────────────────╮
--- │ YouTube | ChatGPT | Github                              │
+-- │To see YouTube | ChatGPT | GitHub                        │
 -- ╰─────────────────────────────────────────────────────────╯
 
 
