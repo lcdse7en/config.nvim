@@ -31,6 +31,9 @@ local bookmarks = {
 	--  NOTE: typst ebook
 	["typst-ebook"] = "https://github.com/typst-doc-cn/tutorial",
 
+  --  NOTE: Github Hosts
+	["githubhosts"] = "https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts",
+
 	--  NOTE: scoop
 	["scoop"] = "http://scoop.sh",
 

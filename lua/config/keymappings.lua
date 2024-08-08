@@ -112,6 +112,12 @@ keymap(
 )
 keymap(
   'n',
+  '<leader>aab',
+  '<cmd>e ~/.config/nvim/lua/plugins/browse.lua<CR>',
+  { silent = true, desc = 'edit browse.lua' }
+)
+keymap(
+  'n',
   '<leader>aak',
   '<cmd>e ~/.config/nvim/lua/config/keymappings.lua<CR>',
   { silent = true, desc = 'edit keymappings.lua' }
