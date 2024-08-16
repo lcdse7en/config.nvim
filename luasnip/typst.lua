@@ -155,4 +155,34 @@ return {
       }
     )
   ),
+  s(
+    {
+      trig = "mytt",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "mytt",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+        #text(font: "<>")[<>]
+      ]],
+      {
+        c(1, { t "PingFang SC", t "FZShuSong-Z01S", t "Source Han Serif SC", t "NanumMyeongjo"} ),
+        i(2),
+      }
+    )
+  ),
 }
