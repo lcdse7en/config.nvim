@@ -185,4 +185,46 @@ return {
       }
     )
   ),
+  s(
+    {
+      trig = "myfl",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "myfl",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+        #let entries = (
+          (type: "debit", name: "<>", amount: "<>"),
+          (type: "", name: "<>", amount: "<>"),
+          (type: "credit", name: "<>", amount: "<>"),
+          (type: "", name: "<>", amount: "<>"),
+        )
+        #journal-entry(entries)
+      ]],
+      {
+        i(1),
+        i(2),
+        i(3),
+        i(4),
+        i(5),
+        i(6),
+        i(7),
+        i(8),
+      }
+    )
+  ),
 }
