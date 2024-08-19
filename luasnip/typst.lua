@@ -127,9 +127,9 @@ return {
   ),
   s(
     {
-      trig = "mynt",
+      trig = 'mynt',
       regTrig = false,
-      snippetType = "snippet",
+      snippetType = 'snippet',
     },
     fmta(
       [[
@@ -140,9 +140,9 @@ return {
   ),
   s(
     {
-      trig = "mynt",
-      regTrig=false,
-      snippetType = "autosnippet",
+      trig = 'mynt',
+      regTrig = false,
+      snippetType = 'autosnippet',
       priority = 2000,
     },
     fmta(
@@ -150,16 +150,16 @@ return {
       //  <>: <>
       ]],
       {
-        c(1, { t "NOTE", t"TODO", t "ISSUE"}),
+        c(1, { t 'NOTE', t 'TODO', t 'ISSUE' }),
         i(2),
       }
     )
   ),
   s(
     {
-      trig = "mytt",
+      trig = 'mytt',
       regTrig = false,
-      snippetType = "snippet",
+      snippetType = 'snippet',
     },
     fmta(
       [[
@@ -170,9 +170,9 @@ return {
   ),
   s(
     {
-      trig = "mytt",
-      regTrig=false,
-      snippetType = "autosnippet",
+      trig = 'mytt',
+      regTrig = false,
+      snippetType = 'autosnippet',
       priority = 2000,
     },
     fmta(
@@ -180,16 +180,16 @@ return {
         #text(font: "<>")[<>]
       ]],
       {
-        c(1, { t "PingFang SC", t "FZShuSong-Z01S", t "Source Han Serif SC", t "NanumMyeongjo"} ),
+        c(1, { t 'PingFang SC', t 'LXGW WenKai', t 'FZShuSong-Z01S', t 'NanumMyeongjo' }),
         i(2),
       }
     )
   ),
   s(
     {
-      trig = "myfl",
+      trig = 'myfl',
       regTrig = false,
-      snippetType = "snippet",
+      snippetType = 'snippet',
     },
     fmta(
       [[
@@ -200,9 +200,9 @@ return {
   ),
   s(
     {
-      trig = "myfl",
-      regTrig=false,
-      snippetType = "autosnippet",
+      trig = 'myfl',
+      regTrig = false,
+      snippetType = 'autosnippet',
       priority = 2000,
     },
     fmta(
