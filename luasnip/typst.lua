@@ -86,7 +86,10 @@ return {
         "<>",
         "<>",
         "<>",
-      ) [+ #item]
+      ) {
+        set text(font: ("Helvetica", "LXGW WenKai"), lang: "zh", region: "cn")
+        [+ #item]
+      }
       ]],
       {
         i(1),
