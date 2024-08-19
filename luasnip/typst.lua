@@ -261,4 +261,35 @@ return {
       }
     )
   ),
+  s(
+    {
+      trig = "myimg",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "myimg",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+      <>image("<>", width: <>0%)
+      ]],
+      {
+        c(1, { t "#", t ""}),
+        i(2, "path"),
+        i(3),
+      }
+    )
+  ),
 }
