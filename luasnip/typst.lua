@@ -86,10 +86,7 @@ return {
         "<>",
         "<>",
         "<>",
-      ) {
-        set text(font: ("Helvetica", "LXGW WenKai"), lang: "zh", region: "cn")
-        [+ #item]
-      }
+      ) [+ #item]
       ]],
       {
         i(1),
@@ -227,6 +224,39 @@ return {
         i(6),
         i(7),
         i(8),
+      }
+    )
+  ),
+  s(
+    {
+      trig = "mygri",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "mygri",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+      #grid(
+        columns: (40pt, 1fr),
+        [],
+        <>
+      )
+      ]],
+      {
+        i(1),
       }
     )
   ),
