@@ -251,6 +251,7 @@ return {
       [[
       #grid(
         columns: (40pt, 1fr),
+        gutter: 0pt,
         [],
         <>
       )
