@@ -292,4 +292,92 @@ return {
       }
     )
   ),
+  s(
+    {
+      trig = "myque",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "myque",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+      #question(
+        points: 2,
+        title: [
+          <>
+        ],
+        (
+          "<>",
+          "<>",
+          "<>",
+          "<>",
+        )
+      )
+      ]],
+      {
+       i(1, "title"),
+       i(2, "A"),
+       i(3, "B"),
+       i(4, "C"),
+       i(5, "D"),
+      }
+    )
+  ),
+  s(
+    {
+      trig = "mypar",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "mypar",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+      #question(
+        points: 1,
+        title: [
+          <>
+        ],
+        (
+          "<>",
+          "<>",
+          "<>",
+          "<>",
+        )
+      )
+      ]],
+      {
+       i(1, "title"),
+       i(2, "A"),
+       i(3, "B"),
+       i(4, "C"),
+       i(5, "D"),
+      }
+    )
+  ),
 }
