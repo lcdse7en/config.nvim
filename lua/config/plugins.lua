@@ -269,23 +269,48 @@ return {
       require('lsp-file-operations').setup()
     end,
   },
+  -- {
+  --   'ThePrimeagen/refactoring.nvim',
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --     'nvim-treesitter/nvim-treesitter',
+  --   },
+  --   cmd = 'Refactor',
+  --   keys = {
+  --     { '<leader>re', ':Refactor extract ', mode = 'x', desc = 'Extract function' },
+  --     { '<leader>rf', ':Refactor extract_to_file ', mode = 'x', desc = 'Extract function to file' },
+  --     { '<leader>rv', ':Refactor extract_var ', mode = 'x', desc = 'Extract variable' },
+  --     { '<leader>ri', ':Refactor inline_var', mode = { 'x', 'n' }, desc = 'Inline variable' },
+  --     { '<leader>rI', ':Refactor inline_func', mode = 'n', desc = 'Inline function' },
+  --     { '<leader>rb', ':Refactor extract_block', mode = 'n', desc = 'Extract block' },
+  --     { '<leader>rf', ':Refactor extract_block_to_file', mode = 'n', desc = 'Extract block to file' },
+  --   },
+  --   config = true,
+  -- },
+
   {
-    'ThePrimeagen/refactoring.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
-    },
-    cmd = 'Refactor',
+    'nvim-pack/nvim-spectre', --  NOTE: <leader>R : confirm all
+    lazy = true,
     keys = {
-      { '<leader>re', ':Refactor extract ', mode = 'x', desc = 'Extract function' },
-      { '<leader>rf', ':Refactor extract_to_file ', mode = 'x', desc = 'Extract function to file' },
-      { '<leader>rv', ':Refactor extract_var ', mode = 'x', desc = 'Extract variable' },
-      { '<leader>ri', ':Refactor inline_var', mode = { 'x', 'n' }, desc = 'Inline variable' },
-      { '<leader>rI', ':Refactor inline_func', mode = 'n', desc = 'Inline function' },
-      { '<leader>rb', ':Refactor extract_block', mode = 'n', desc = 'Extract block' },
-      { '<leader>rf', ':Refactor extract_block_to_file', mode = 'n', desc = 'Extract block to file' },
+      {
+        '<Leader>rf',
+        "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
+        mode = {'n', 'v' },
+        desc = '󰛔 Spectre search current file',
+      },
+      {
+        '<Leader>ro',
+        "<cmd>lua require('spectre').open()<CR>",
+        mode = {'n', 'v' },
+        desc = '󰛔 Open Spectre',
+      },
+      {
+        '<Leader>rw',
+        "<cmd>lua require('spectre').open_visual({select_word})<CR>",
+        mode = { 'v' },
+        desc = '󰛔 Spectre search current word',
+      },
     },
-    config = true,
   },
 
   -- ╭─────────────────────────────────────────────────────────╮

@@ -104,7 +104,7 @@ wk.add({
 	},
 	{
 		"<leader>r",
-		group = "Refactor",
+		group = "Spectre",
 	},
 	{
 		"<leader>s",
