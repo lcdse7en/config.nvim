@@ -229,9 +229,9 @@ return {
   ),
   s(
     {
-      trig = "mygri",
+      trig = 'mygri',
       regTrig = false,
-      snippetType = "snippet",
+      snippetType = 'snippet',
     },
     fmta(
       [[
@@ -242,9 +242,9 @@ return {
   ),
   s(
     {
-      trig = "mygri",
-      regTrig=false,
-      snippetType = "autosnippet",
+      trig = 'mygri',
+      regTrig = false,
+      snippetType = 'autosnippet',
       priority = 2000,
     },
     fmta(
@@ -263,9 +263,9 @@ return {
   ),
   s(
     {
-      trig = "myimg",
+      trig = 'myimg',
       regTrig = false,
-      snippetType = "snippet",
+      snippetType = 'snippet',
     },
     fmta(
       [[
@@ -276,9 +276,9 @@ return {
   ),
   s(
     {
-      trig = "myimg",
-      regTrig=false,
-      snippetType = "autosnippet",
+      trig = 'myimg',
+      regTrig = false,
+      snippetType = 'autosnippet',
       priority = 2000,
     },
     fmta(
@@ -286,17 +286,17 @@ return {
       <>image("<>", width: <>0%)
       ]],
       {
-        c(1, { t "#", t ""}),
-        i(2, "path"),
+        c(1, { t '#', t '' }),
+        i(2, 'path'),
         i(3),
       }
     )
   ),
   s(
     {
-      trig = "myque",
+      trig = 'myque',
       regTrig = false,
-      snippetType = "snippet",
+      snippetType = 'snippet',
     },
     fmta(
       [[
@@ -307,9 +307,9 @@ return {
   ),
   s(
     {
-      trig = "myque",
-      regTrig=false,
-      snippetType = "autosnippet",
+      trig = 'myque',
+      regTrig = false,
+      snippetType = 'autosnippet',
       priority = 2000,
     },
     fmta(
@@ -328,19 +328,19 @@ return {
       )
       ]],
       {
-       i(1, "title"),
-       i(2, "A"),
-       i(3, "B"),
-       i(4, "C"),
-       i(5, "D"),
+        i(1, 'title'),
+        i(2, 'A'),
+        i(3, 'B'),
+        i(4, 'C'),
+        i(5, 'D'),
       }
     )
   ),
   s(
     {
-      trig = "mypar",
+      trig = 'mypar',
       regTrig = false,
-      snippetType = "snippet",
+      snippetType = 'snippet',
     },
     fmta(
       [[
@@ -351,9 +351,9 @@ return {
   ),
   s(
     {
-      trig = "mypar",
-      regTrig=false,
-      snippetType = "autosnippet",
+      trig = 'mypar',
+      regTrig = false,
+      snippetType = 'autosnippet',
       priority = 2000,
     },
     fmta(
@@ -372,11 +372,106 @@ return {
       )
       ]],
       {
-       i(1, "title"),
-       i(2, "A"),
-       i(3, "B"),
-       i(4, "C"),
-       i(5, "D"),
+        i(1, 'title'),
+        i(2, 'A'),
+        i(3, 'B'),
+        i(4, 'C'),
+        i(5, 'D'),
+      }
+    )
+  ),
+  s(
+    {
+      trig = 'mypar',
+      regTrig = false,
+      snippetType = 'snippet',
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = 'mypar',
+      regTrig = false,
+      snippetType = 'autosnippet',
+      priority = 2000,
+    },
+    fmta(
+      [[
+      #par(first-line-indent: <>em)[<>]
+      ]],
+      {
+        c(1, { t '0', t '2' }),
+        i(2),
+      }
+    )
+  ),
+  s(
+    {
+      trig = "mylis",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "mylis",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+      #list(
+        indent: 1.5em,
+        [<>],
+        [<>],
+        [<>],
+      )
+      ]],
+      {
+        i(1),
+        i(2),
+        i(3),
+      }
+    )
+  ),
+  s(
+    {
+      trig = "h2",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "h2",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+        == <>
+      ]],
+      {
+        i(1),
       }
     )
   ),
