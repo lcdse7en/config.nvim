@@ -13,6 +13,7 @@ local bookmarks = {
 	["wallpaper"] = "https://alphacoders.com/k%E2%80%93pop-4k-wallpapers",
 	["Ruixi-rebirth-nixos-config"] = "https://github.com/Ruixi-rebirth?tab=repositories",
 	["tjdevries"] = "https://github.com/tjdevries",
+  ["yazi-config"] = "https://github.com/Matt-FTW/dotfiles",
 
 	--  NOTE: localhost
 	["localhost"] = {
