@@ -19,4 +19,3 @@ require 'internal.winbar'
 require 'internal.cursorword'
 require 'internal.vmlens'
 require 'internal.CodeRunning'
-sie
