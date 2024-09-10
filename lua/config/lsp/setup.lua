@@ -110,9 +110,9 @@ require("mason-lspconfig").setup_handlers({
 		})
 	end,
 
-	["tsserver"] = function()
+	-- ["tsserver"] = function()
 		-- Skip since we use typescript-tools.nvim
-	end,
+	-- end,
 
 	["tailwindcss"] = function()
 		lspconfig.tailwindcss.setup({
