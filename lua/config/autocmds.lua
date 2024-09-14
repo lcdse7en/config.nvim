@@ -443,3 +443,11 @@ vim.api.nvim_create_autocmd('UILeave', {
     io.write '\027]111\027\\'
   end,
 })
+
+-- Disable built-in spellchecking for markdown
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'txt', 'gitcommit', 'typst', 'markdown' },
+  callback = function()
+    vim.opt_local.spell = false
+  end,
+})
