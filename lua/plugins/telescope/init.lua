@@ -1,28 +1,31 @@
-local actions    = require('telescope.actions')
-local previewers = require('telescope.previewers')
-local builtin    = require('telescope.builtin')
-local icons      = EcoVim.icons
+local actions = require 'telescope.actions'
+local previewers = require 'telescope.previewers'
+local builtin = require 'telescope.builtin'
+local icons = EcoVim.icons
+local data = assert(vim.fn.stdpath 'data') --[[@as string]]
 
 -- require('telescope').load_extension('fzf')
-require('telescope').load_extension('repo')
-require("telescope").load_extension("git_worktree")
+require('telescope').load_extension 'repo'
+require('telescope').load_extension 'git_worktree'
+-- require('telescope').load_extension 'smart_history'
+require('telescope').load_extension 'ui-select'
 
 local git_icons = {
   added = icons.gitAdd,
   changed = icons.gitChange,
-  copied = ">",
+  copied = '>',
   deleted = icons.gitRemove,
-  renamed = "➡",
-  unmerged = "‡",
-  untracked = "?",
+  renamed = '➡',
+  unmerged = '‡',
+  untracked = '?',
 }
 
 require('telescope').setup {
   defaults = {
-    border            = true,
-    winblend          = 10, -- 设置背景透明度
-    hl_result_eol     = true,
-    multi_icon        = '',
+    border = true,
+    winblend = 10, -- 设置背景透明度
+    hl_result_eol = true,
+    multi_icon = '',
     vimgrep_arguments = {
       'rg',
       '--color=never',
@@ -30,46 +33,55 @@ require('telescope').setup {
       '--with-filename',
       '--line-number',
       '--column',
-      '--smart-case'
+      '--smart-case',
     },
-    layout_config     = {
+    layout_config = {
       horizontal = {
         preview_cutoff = 120,
       },
-      prompt_position = "top",
+      prompt_position = 'top',
     },
-    file_sorter       = require('telescope.sorters').get_fzy_sorter,
-    prompt_prefix     = '  ',
-    color_devicons    = true,
-    git_icons         = git_icons,
-    sorting_strategy  = "ascending",
-    file_previewer    = require('telescope.previewers').vim_buffer_cat.new,
-    grep_previewer    = require('telescope.previewers').vim_buffer_vimgrep.new,
-    qflist_previewer  = require('telescope.previewers').vim_buffer_qflist.new,
-    mappings          = {
+    file_sorter = require('telescope.sorters').get_fzy_sorter,
+    prompt_prefix = '  ',
+    color_devicons = true,
+    git_icons = git_icons,
+    sorting_strategy = 'ascending',
+    file_previewer = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+    mappings = {
       i = {
-        ["<C-x>"] = false,
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-        ["<C-s>"] = actions.cycle_previewers_next,
-        ["<C-a>"] = actions.cycle_previewers_prev,
+        ['<C-x>'] = false,
+        ['<C-j>'] = actions.move_selection_next,
+        ['<C-k>'] = actions.move_selection_previous,
+        ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
+        ['<C-s>'] = actions.cycle_previewers_next,
+        ['<C-a>'] = actions.cycle_previewers_prev,
         -- ["<C-h>"] = "which_key",
-        ["<ESC>"] = actions.close,
+        ['<ESC>'] = actions.close,
       },
       n = {
-        ["<C-s>"] = actions.cycle_previewers_next,
-        ["<C-a>"] = actions.cycle_previewers_prev,
-      }
-    }
+        ['<C-s>'] = actions.cycle_previewers_next,
+        ['<C-a>'] = actions.cycle_previewers_prev,
+      },
+    },
   },
   extensions = {
+    wrap_results = true,
+
     -- fzf = {
     --   override_generic_sorter = false,
     --   override_file_sorter = true,
     --   case_mode = "smart_case",
     -- }
-  }
+    -- history = {
+    --   path = vim.fs.joinpath(data, 'telescope_history.sqlite3'),
+    --   limit = 100,
+    -- },
+    ['ui-select'] = {
+      require('telescope.themes').get_dropdown {},
+    },
+  },
 }
 
 -- Implement delta as previewer for diffs
@@ -78,15 +90,24 @@ local M = {}
 
 local delta_bcommits = previewers.new_termopen_previewer {
   get_command = function(entry)
-    return { 'git', '-c', 'core.pager=delta', '-c', 'delta.side-by-side=false', 'diff', entry.value .. '^!', '--',
-      entry.current_file }
-  end
+    return {
+      'git',
+      '-c',
+      'core.pager=delta',
+      '-c',
+      'delta.side-by-side=false',
+      'diff',
+      entry.value .. '^!',
+      '--',
+      entry.current_file,
+    }
+  end,
 }
 
 local delta = previewers.new_termopen_previewer {
   get_command = function(entry)
     return { 'git', '-c', 'core.pager=delta', '-c', 'delta.side-by-side=false', 'diff', entry.value .. '^!' }
-  end
+  end,
 }
 
 M.my_git_commits = function(opts)
@@ -114,46 +135,46 @@ end
 -- Custom pickers
 
 M.edit_neovim = function()
-  builtin.git_files(
-    require('telescope.themes').get_dropdown({
-      color_devicons   = true,
-      cwd              = "~/.config/nvim",
-      previewer        = false,
-      prompt_title     = "Ecovim Dotfiles",
-      sorting_strategy = "ascending",
-      winblend         = 10,
-      layout_config    = {
-        horizontal = {
-          mirror = false,
-        },
-        vertical = {
-          mirror = false,
-        },
-        prompt_position = "top",
+  builtin.git_files(require('telescope.themes').get_dropdown {
+    color_devicons = true,
+    cwd = '~/.config/nvim',
+    previewer = false,
+    prompt_title = 'Ecovim Dotfiles',
+    sorting_strategy = 'ascending',
+    winblend = 10,
+    layout_config = {
+      horizontal = {
+        mirror = false,
       },
-    }))
+      vertical = {
+        mirror = false,
+      },
+      prompt_position = 'top',
+    },
+  })
 end
 
 M.project_files = function(opts)
   opts = opts or {} -- define here if you want to define something
-  local ok = pcall(require "telescope.builtin".git_files, opts)
-  if not ok then require "telescope.builtin".find_files(opts) end
+  local ok = pcall(require('telescope.builtin').git_files, opts)
+  if not ok then
+    require('telescope.builtin').find_files(opts)
+  end
 end
 
 M.command_history = function()
-  builtin.command_history(
-    require('telescope.themes').get_dropdown({
-      color_devicons = true,
-      winblend       = 4,
-      layout_config  = {
-        width = function(_, max_columns, _)
-          return math.min(max_columns, 150)
-        end,
-        height = function(_, _, max_lines)
-          return math.min(max_lines, 15)
-        end,
-      },
-    }))
+  builtin.command_history(require('telescope.themes').get_dropdown {
+    color_devicons = true,
+    winblend = 4,
+    layout_config = {
+      width = function(_, max_columns, _)
+        return math.min(max_columns, 150)
+      end,
+      height = function(_, _, max_lines)
+        return math.min(max_lines, 15)
+      end,
+    },
+  })
 end
 
 return M

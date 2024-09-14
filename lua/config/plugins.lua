@@ -72,9 +72,6 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     lazy = false,
-    config = function()
-      require 'plugins.telescope'
-    end,
     dependencies = {
       { 'nvim-lua/popup.nvim' },
       { 'nvim-lua/plenary.nvim' },
@@ -85,7 +82,13 @@ return {
       { 'nvim-telescope/telescope-live-grep-args.nvim' },
       { 'MattesGroeger/vim-bookmarks' },
       { 'tom-anders/telescope-vim-bookmarks.nvim' },
+      { 'nvim-telescope/telescope-smart-history.nvim' },
+      { 'nvim-telescope/telescope-ui-select.nvim' },
+      { 'kkharji/sqlite.lua' },
     },
+    config = function()
+      require 'plugins.telescope'
+    end,
   },
   {
     'kevinhwang91/nvim-bqf',
@@ -295,13 +298,13 @@ return {
       {
         '<Leader>rf',
         "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
-        mode = {'n', 'v' },
+        mode = { 'n', 'v' },
         desc = '󰛔 Spectre search current file',
       },
       {
         '<Leader>ro',
         "<cmd>lua require('spectre').open()<CR>",
-        mode = {'n', 'v' },
+        mode = { 'n', 'v' },
         desc = '󰛔 Open Spectre',
       },
       {
@@ -558,11 +561,12 @@ return {
   },
   {
     'iamcco/markdown-preview.nvim',
-    build = 'cd app && npm install',
-    setup = function()
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    ft = { 'markdown' },
+    build = 'cd app && yarn install',
+    init = function()
       vim.g.mkdp_filetypes = { 'markdown' }
     end,
-    ft = { 'markdown' },
   },
   {
     'airblade/vim-rooter',
