@@ -449,5 +449,6 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'txt', 'gitcommit', 'typst', 'markdown' },
   callback = function()
     vim.opt_local.spell = false
+    -- vim.wo.spell = false
   end,
 })

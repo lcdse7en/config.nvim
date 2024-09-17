@@ -65,6 +65,7 @@ Git Commits w/ Telescope
 Git Side Blame
 
 ![Side Blame](./.screenshots/4-side-blame.png)
+
 </details>
 
 ## Installation
@@ -75,13 +76,13 @@ Git Side Blame
 
 - Make sure you have installed the latest version of Neovim v0.9.0+ (nightly is preferred).
 - Have wget, curl, unzip, git, make, pip, python, npm, node, luarocks, fd, ripgrep and cargo installed on your system. You can check if you are missing anything with `:checkhealth` command.
-- Have any nerd font installed. *Fira Code* has been used in screenshots. You can download it from [nerdfonts.com](https://www.nerdfonts.com/font-downloads).
+- Have any nerd font installed. _Fira Code_ has been used in screenshots. You can download it from [nerdfonts.com](https://www.nerdfonts.com/font-downloads).
 
 **After install configuration:**
 
 1. Selected treesitter Languages are installed by default.
-To check it run `:TSInstallInfo`.
-Make sure to run `:TSInstall <lang>` for specific language you want to install.
+   To check it run `:TSInstallInfo`.
+   Make sure to run `:TSInstall <lang>` for specific language you want to install.
 2. LSP servers are enabled by default. You can check installed LSP servers by `:Mason` command.
 
 ## Configuration
@@ -105,7 +106,7 @@ Space (SPC) is my Leader key.
 ### File Explorer
 
 | Key Bindings | Description                                   |
-|--------------|-----------------------------------------------|
+| ------------ | --------------------------------------------- |
 | <C - e>      | Open File Explorer                            |
 | Backspace    | Back to file explorer (in editor normal mode) |
 | g?           | Open commands menu                            |
@@ -124,7 +125,7 @@ Space (SPC) is my Leader key.
 ### Searching
 
 | Key Bindings | Description         |
-|--------------|---------------------|
+| ------------ | ------------------- |
 | <C - p>      | Telescope git files |
 | <S - p>      | Telescope live grep |
 | s            | Enables lightspeed  |
@@ -140,7 +141,7 @@ Space (SPC) is my Leader key.
 ### Working with LSP:
 
 | Key Bindings           | Description                                       |
-|------------------------|---------------------------------------------------|
+| ---------------------- | ------------------------------------------------- |
 | <C - Space> or SPC c a | Code action                                       |
 | <S - K>                | Show documentation under cursor                   |
 | gd                     | Go to definition                                  |
@@ -161,7 +162,7 @@ Space (SPC) is my Leader key.
 ### Working with Git:
 
 | Key Bindings | Description                                                                                                                              |
-|--------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | SPC g g      | Lazygit - for committing and branch change                                                                                               |
 | SPC g s      | Telescope status - when I want to change/search file I am working on with git changes                                                    |
 | ]c           | Go to next change hunk                                                                                                                   |
@@ -182,7 +183,7 @@ Space (SPC) is my Leader key.
 ### Working with Project:
 
 | Key Bindings | Description                                                                                                                                                                                                                                                                             |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <C - e>      | Toggles nvim-tree file explorer                                                                                                                                                                                                                                                         |
 | SPC p w      | Find word under cursor in project - very useful to find where component is used. Just use binding and type '<'. There is a lot of alternatives like LSP references but I like it with telescope and to not find only references but whole text under cursor.                            |
 | SPC p f      | Find file under cursor in project - it finds files in project which contains text under cursor. Useful when you name directories by component name in React and wants to go quickly to file. 'gd' is better but in some projects without TS or with mixed JS/TS it cannot work properly |
@@ -198,7 +199,7 @@ Space (SPC) is my Leader key.
 ### Commenting
 
 | Key Bindings | Description                |
-|--------------|----------------------------|
+| ------------ | -------------------------- |
 | gcc          | Create/remove comment      |
 | gc (visual)  | Create/remove comment      |
 | gcO          | Create comment line before |
@@ -212,7 +213,7 @@ Space (SPC) is my Leader key.
 ### Table Mode / Alignment
 
 | Key Bindings | Description                                                                       |
-|--------------|-----------------------------------------------------------------------------------|
+| ------------ | --------------------------------------------------------------------------------- |
 | ga (visual)  | Aligns selection based on separator (comma, semi-colon, colon etc.)               |
 | SPC t m      | Enables Table Mode. Do it in markdown file with some table and you will see magic |
 | SPC t i C    | (Only when Table Mode Enabled) Insert column before                               |
@@ -228,29 +229,28 @@ Space (SPC) is my Leader key.
 
 ### Other VERY useful bindings
 
-| Key Bindings | Description                                                                                                                                                                               |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <S - q>      | Smartly closes current buffer without breaking UI                                                                                                                                         |
-| <C - a>      | It is not only increases number, but switches between true/false/const/let/function/arrow function/increment dates etc.                                                                   |
-| <C - n>      | Finds next occurrence (like *) of word and puts multi-cursor there. Then you can go to Insert mode, Append, Change or Delete. [Read more](https://github.com/mg979/vim-visual-multi/wiki) |
-| <C - o>      | Jumps to previous cursor in jumplist. I use it very often.                                                                                                                                |
-| v <ENTER>    | Smartly selects next subjects of current treesitter context                                                                                                                               |
-| s            | Standalone jump to any word with `folke/flash.nvim`                                                                                                                                       |
-| ciq          | Change inside ANY quotes (`` or '' or "" etc.) with `mini.ai`                                                                                                                             |
-| cib          | Change inside ANY brackets ({} or [] or () etc.) with `mini.ai`                                                                                                                           |
-| za           | Toggle folds. By LSP and nvim-ufo they are automatically added to supported files in smart way.                                                                                           |
-| zM           | Close all folds                                                                                                                                                                           |
-| zR           | Open all folds                                                                                                                                                                            |
-| zr           | Open all folds except imports/comments                                                                                                                                                    |
-| gJ           | Smartly joins lines based on treesitter                                                                                                                                                   |
-| gS           | Smartly splits lines based on treesitter. I do if VERY often when I want to put import element to new lines (e.g. import { A, B, C, D, E } from ...)                                      |
-| < F12 >      | Opens/closes terminal                                                                                                                                                                     |
-| ~            | Switch function arguments smartly                                                                                                                                                         |
+| Key Bindings | Description                                                                                                                                                                                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <S - q>      | Smartly closes current buffer without breaking UI                                                                                                                                          |
+| <C - a>      | It is not only increases number, but switches between true/false/const/let/function/arrow function/increment dates etc.                                                                    |
+| <C - n>      | Finds next occurrence (like \*) of word and puts multi-cursor there. Then you can go to Insert mode, Append, Change or Delete. [Read more](https://github.com/mg979/vim-visual-multi/wiki) |
+| <C - o>      | Jumps to previous cursor in jumplist. I use it very often.                                                                                                                                 |
+| v <ENTER>    | Smartly selects next subjects of current treesitter context                                                                                                                                |
+| s            | Standalone jump to any word with `folke/flash.nvim`                                                                                                                                        |
+| ciq          | Change inside ANY quotes (``or '' or "" etc.) with`mini.ai`                                                                                                                                |
+| cib          | Change inside ANY brackets ({} or [] or () etc.) with `mini.ai`                                                                                                                            |
+| za           | Toggle folds. By LSP and nvim-ufo they are automatically added to supported files in smart way.                                                                                            |
+| zM           | Close all folds                                                                                                                                                                            |
+| zR           | Open all folds                                                                                                                                                                             |
+| zr           | Open all folds except imports/comments                                                                                                                                                     |
+| gJ           | Smartly joins lines based on treesitter                                                                                                                                                    |
+| gS           | Smartly splits lines based on treesitter. I do if VERY often when I want to put import element to new lines (e.g. import { A, B, C, D, E } from ...)                                       |
+| < F12 >      | Opens/closes terminal                                                                                                                                                                      |
+| ~            | Switch function arguments smartly                                                                                                                                                          |
 
 </details>
 
 Check out the which-key menu and [keymappings.lua](https://github.com/ecosse3/nvim/blob/master/lua/config/keymappings.lua) for most used maps.
-
 
 ## Performance
 
@@ -261,19 +261,18 @@ Ecovim started in 91.13ms
 ## Future Todo
 
 | Description                                                          | Progress                                                           |
-|----------------------------------------------------------------------|--------------------------------------------------------------------|
+| -------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | Support more LSPs (not only frontend? - already possible via Mason)  | ![50%](https://progress-bar.dev/50/?title=progres)                 |
 | Better configuration of additional LSPs (already possible via Mason) | ![50%](https://progress-bar.dev/50/?title=planned)                 |
 | Project Logo                                                         | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 | Auto resize for more consistent UI behavior                          | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 | Reload in-time support                                               | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 
-
 <details>
 <summary>Done</summary>
 
 | Description                                     | Progress                                                       |
-|-------------------------------------------------|----------------------------------------------------------------|
+| ----------------------------------------------- | -------------------------------------------------------------- |
 | lazy.nvim instead of packer                     | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
 | Better support for null-ls and local formatting | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
 | Better support to project word refactor         | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |

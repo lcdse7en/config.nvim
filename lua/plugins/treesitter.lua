@@ -16,7 +16,7 @@ require 'nvim-treesitter.configs'.setup {
     "graphql",
     "json",
     "json5",
-    "markdown",
+    -- "markdown",
     "prisma",
     "vim",
   },                              -- one of "all", or a list of languages
