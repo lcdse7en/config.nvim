@@ -21,17 +21,17 @@ mason.setup({
 mason_lsp.setup({
 	-- A list of servers to automatically install if they're not already installed
 	ensure_installed = {
-		"bashls",
+		-- "bashls",
 		-- "cssls",
 		-- "eslint",
-		"graphql",
-		"html",
+		-- "graphql",
+		-- "html",
 		-- "jsonls",
-		"lua_ls",
-		"pyright",
+		-- "lua_ls", -- sudo pacman -S lua-language-server
+		-- "pyright",
 		"tinymist", -- typst LSP
-		"prismals",
-		"tailwindcss",
+		-- "prismals",
+		-- "tailwindcss",
 		-- "tsserver"
 	},
 	-- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
@@ -53,15 +53,15 @@ mason_tool_installer.setup({
 		"taplo", -- toml formatter
 		"black",
 		"isort",
-		"ruff",
+		-- "ruff",
 		-- 'shellcheck',
-		"prettier", -- prettier formatter
-		"prettierd", -- prettierd formatter
+		-- "prettier", -- prettier formatter
+		-- "prettierd", -- prettierd formatter
 		"clang-format", -- c | cpp formatter
 		-- 'gofumpt',
 		-- "goimports",
 		"jq",
-		"bibtex-tidy",
+		-- "bibtex-tidy",
 		-- "luacheck",
 		-- 'stylua', -- lua formatter
 		--  NOTE: Lint

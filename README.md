@@ -22,7 +22,7 @@
 - Debugging with [nvim-dap](https://github.com/mfussenegger/nvim-dap) (works with React.js & React Native)
 - Automatic Treesitter-based folding with imports folded by default
 - Current code context via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
-- Beautiful and functional custom statusline built with [galaxyline.nvim](https://github.com/glepnir/galaxyline.nvim) 
+- Beautiful and functional custom statusline built with [galaxyline.nvim](https://github.com/glepnir/galaxyline.nvim)
 - Git management with [Lazygit](https://github.com/jesseduffield/lazygit), custom telescope commits view with [git-delta](https://github.com/dandavison/delta), [gitsigns](https://github.com/lewis6991/gitsigns.nvim) & [diffview](https://github.com/sindrets/diffview.nvim), custom git blame
 
 And of course usage of [telescope](https://github.com/nvim-telescope/telescope.nvim), [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua), [barbar](https://github.com/romgrk/barbar.nvim), [cmp](https://github.com/hrsh7th/nvim-cmp), [treesitter](https://github.com/nvim-treesitter/nvim-treesitter), [blankline](https://github.com/lukas-reineke/indent-blankline.nvim) & more!
@@ -249,16 +249,16 @@ Space (SPC) is my Leader key.
 
 </details>
 
-Check out the which-key menu and [keymappings.lua](https://github.com/ecosse3/nvim/blob/master/lua/config/keymappings.lua) for most used maps. 
+Check out the which-key menu and [keymappings.lua](https://github.com/ecosse3/nvim/blob/master/lua/config/keymappings.lua) for most used maps.
 
 
 ## Performance
 
 Measured on M1.
 
-Ecovim started in 91.13ms 
+Ecovim started in 91.13ms
 
-## Future Todo 
+## Future Todo
 
 | Description                                                          | Progress                                                           |
 |----------------------------------------------------------------------|--------------------------------------------------------------------|
