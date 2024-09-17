@@ -19,6 +19,7 @@ local bookmarks = {
   ['localhost'] = {
     ['name'] = 'Localhost:127.0.0.1',
     ['server'] = 'http://localhost:8000',
+    ['print'] = 'http://localhost:631',
     ['torrent'] = 'http://localhost:9091',
   },
 
