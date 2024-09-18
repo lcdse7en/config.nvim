@@ -14,6 +14,7 @@ local bookmarks = {
   ['Ruixi-rebirth-nixos-config'] = 'https://github.com/Ruixi-rebirth?tab=repositories',
   ['tjdevries'] = 'https://github.com/tjdevries',
   ['yazi-config'] = 'https://github.com/Matt-FTW/dotfiles',
+  ['typst_packages'] = 'https://github.com/typst/packages',
 
   --  NOTE: localhost
   ['localhost'] = {
