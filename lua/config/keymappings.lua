@@ -118,6 +118,12 @@ keymap(
 )
 keymap(
   'n',
+  '<leader>aah',
+  '<cmd>e ~/Clone/hyprdots/archlinux-scripts/edit_hosts.sh<CR>',
+  { silent = true, desc = 'edit edit_hosts.sh' }
+)
+keymap(
+  'n',
   '<leader>aak',
   '<cmd>e ~/.config/nvim/lua/config/keymappings.lua<CR>',
   { silent = true, desc = 'edit keymappings.lua' }
