@@ -193,6 +193,61 @@ vim.api.nvim_create_autocmd('BufEnter', {
 --  NOTE: Set scripts to be executable from the shell
 vim.cmd [[ au BufWritePost * if getline(1) =~ "^#!" | silent !chmod +x <afile> | endif ]]
 
+
+--  NOTE: shell
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('sh', { clear = true }),
+  pattern = {
+    'sh',
+  },
+  callback = function()
+    vim.bo.shiftwidth = 4
+    vim.bo.softtabstop = 4
+    vim.bo.autoindent = true
+    vim.bo.cindent = true
+    vim.bo.expandtab = true
+    vim.bo.smartindent = true
+    vim.opt.colorcolumn = '100'
+    vim.opt.wrap = false
+  end,
+})
+--  NOTE: python
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('python', { clear = true }),
+  pattern = {
+    'python',
+  },
+  callback = function()
+    vim.bo.shiftwidth = 4
+    vim.bo.softtabstop = 4
+    vim.bo.autoindent = true
+    vim.bo.cindent = true
+    vim.bo.expandtab = true
+    vim.bo.smartindent = true
+    vim.bo.copyindent = true
+    vim.opt.colorcolumn = '100'
+    vim.opt.wrap = false
+  end,
+})
+--  NOTE: typst
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('typst', { clear = true }),
+  pattern = {
+    '*.typ',
+  },
+  callback = function()
+    vim.bo.shiftwidth = 2
+    vim.bo.softtabstop = 2
+    vim.bo.autoindent = true
+    vim.bo.cindent = true
+    vim.bo.expandtab = true
+    vim.bo.smartindent = true
+    vim.bo.copyindent = true
+    vim.opt.colorcolumn = '120'
+    vim.wo.wrap = true
+  end,
+})
+
 --  NOTE: Open new file insert text
 vim.cmd [[
     augroup title_sh
