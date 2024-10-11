@@ -29,7 +29,7 @@ mason_lsp.setup({
 		-- "jsonls",
 		-- "lua_ls", -- sudo pacman -S lua-language-server
 		"pyright",
-		"tinymist", -- typst LSP
+		-- "tinymist", -- typst LSP
 		-- "prismals",
 		-- "tailwindcss",
 		-- "tsserver"
