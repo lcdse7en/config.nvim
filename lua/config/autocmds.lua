@@ -193,7 +193,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
 --  NOTE: Set scripts to be executable from the shell
 vim.cmd [[ au BufWritePost * if getline(1) =~ "^#!" | silent !chmod +x <afile> | endif ]]
 
-
 --  NOTE: shell
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('sh', { clear = true }),
@@ -507,3 +506,17 @@ vim.api.nvim_create_autocmd('FileType', {
     -- vim.wo.spell = false
   end,
 })
+
+vim.api.nvim_create_autocmd(
+    {
+        "BufNewFile",
+        "BufRead",
+    },
+    {
+        pattern = "*.typ",
+        callback = function()
+            local buf = vim.api.nvim_get_current_buf()
+            vim.api.nvim_buf_set_option(buf, "filetype", "typst")
+        end
+    }
+)
