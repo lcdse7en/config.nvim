@@ -14,7 +14,7 @@ return {
   -- },
   {
     'LunarVim/darkplus.nvim',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
   },
   { 'nvim-lua/plenary.nvim' },
@@ -75,7 +75,7 @@ return {
     dependencies = {
       { 'nvim-lua/popup.nvim' },
       { 'nvim-lua/plenary.nvim' },
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      { 'nvim-telescope/telescope-fzf-native.nvim',    build = 'make' },
       { 'cljoly/telescope-repo.nvim' },
       { 'nvim-telescope/telescope-file-browser.nvim' },
       { 'nvim-telescope/telescope-live-grep-raw.nvim' },
@@ -255,9 +255,9 @@ return {
     end,
     cmd = { 'Glance' },
     keys = {
-      { 'gd', '<cmd>Glance definitions<CR>', desc = 'LSP Definition' },
-      { 'gr', '<cmd>Glance references<CR>', desc = 'LSP References' },
-      { 'gm', '<cmd>Glance implementations<CR>', desc = 'LSP Implementations' },
+      { 'gd', '<cmd>Glance definitions<CR>',      desc = 'LSP Definition' },
+      { 'gr', '<cmd>Glance references<CR>',       desc = 'LSP References' },
+      { 'gm', '<cmd>Glance implementations<CR>',  desc = 'LSP Implementations' },
       { 'gy', '<cmd>Glance type_definitions<CR>', desc = 'LSP Type Definitions' },
     },
   },
@@ -352,9 +352,17 @@ return {
   {
     'LudoPinelli/comment-box.nvim',
     lazy = false,
+    cmd = { 'CBcatalog', 'CBcbox' },
     keys = {
+      { '<leader>ae', '<cmd>CBalbox<cr>',                            desc = 'Comment Box Auto' },
       { '<leader>ac', "<cmd>lua require('comment-box').llbox()<CR>", desc = 'comment box' },
-      { '<leader>ac', "<cmd>lua require('comment-box').llbox()<CR>", mode = 'v', desc = 'comment box' },
+      { '<leader>aB', '<cmd>CBlcbox<cr>',                            desc = 'Comment Box Big' },
+      { '<leader>ac', "<cmd>lua require('comment-box').llbox()<CR>", mode = 'v',                  desc = 'comment box' },
+      { '<leader>ad', '<cmd>CBd<cr>',                                desc = 'Comment Box Delete' },
+      { '<leader>al', '<cmd>CBcatalog<cr>',                          desc = 'Comment Box Catalog' },
+    },
+    opts = {
+      line_width = 40,
     },
   },
   {
@@ -368,8 +376,8 @@ return {
       { '<Leader>at', '<cmd>ToggleTerm direction=float<CR>', desc = 'terminal float' },
     },
   },
-  { 'tpope/vim-repeat', lazy = false },
-  { 'tpope/vim-speeddating', lazy = false },
+  { 'tpope/vim-repeat',           lazy = false },
+  { 'tpope/vim-speeddating',      lazy = false },
   { 'dhruvasagar/vim-table-mode', ft = { 'markdown' } },
   {
     'smoka7/multicursors.nvim',
@@ -497,32 +505,32 @@ return {
     },
     version = '*',
     keys = {
-      { '<Space>1', '<cmd>BufferLineGoToBuffer 1<CR>' },
-      { '<Space>2', '<cmd>BufferLineGoToBuffer 2<CR>' },
-      { '<Space>3', '<cmd>BufferLineGoToBuffer 3<CR>' },
-      { '<Space>4', '<cmd>BufferLineGoToBuffer 4<CR>' },
-      { '<Space>5', '<cmd>BufferLineGoToBuffer 5<CR>' },
+      { '<Space>1',    '<cmd>BufferLineGoToBuffer 1<CR>' },
+      { '<Space>2',    '<cmd>BufferLineGoToBuffer 2<CR>' },
+      { '<Space>3',    '<cmd>BufferLineGoToBuffer 3<CR>' },
+      { '<Space>4',    '<cmd>BufferLineGoToBuffer 4<CR>' },
+      { '<Space>5',    '<cmd>BufferLineGoToBuffer 5<CR>' },
       -- { "<Space>6", "<cmd>BufferLineGoToBuffer 6<CR>" },
       -- { "<Space>7", "<cmd>BufferLineGoToBuffer 7<CR>" },
       -- { "<Space>8", "<cmd>BufferLineGoToBuffer 8<CR>" },
       -- { "<Space>9", "<cmd>BufferLineGoToBuffer 9<CR>" },
-      { '<A-1>', '<cmd>BufferLineGoToBuffer 1<CR>' },
-      { '<A-2>', '<cmd>BufferLineGoToBuffer 2<CR>' },
-      { '<A-3>', '<cmd>BufferLineGoToBuffer 3<CR>' },
-      { '<A-4>', '<cmd>BufferLineGoToBuffer 4<CR>' },
-      { '<A-5>', '<cmd>BufferLineGoToBuffer 5<CR>' },
-      { '<A-6>', '<cmd>BufferLineGoToBuffer 6<CR>' },
-      { '<A-7>', '<cmd>BufferLineGoToBuffer 7<CR>' },
-      { '<A-8>', '<cmd>BufferLineGoToBuffer 8<CR>' },
-      { '<A-9>', '<cmd>BufferLineGoToBuffer 9<CR>' },
-      { '<Leader>bb', '<cmd>BufferLineMovePrev<CR>', desc = 'Move back' },
-      { '<Leader>bl', '<cmd>BufferLineCloseLeft<CR>', desc = 'Close Left' },
-      { '<Leader>br', '<cmd>BufferLineCloseRight<CR>', desc = 'Close Right' },
-      { '<Leader>bn', '<cmd>BufferLineMoveNext<CR>', desc = 'Move next' },
-      { '<Leader>bp', '<cmd>BufferLinePick<CR>', desc = 'Pick Buffer' },
-      { '<Leader>bP', '<cmd>BufferLineTogglePin<CR>', desc = 'Pin/Unpin Buffer' },
-      { '<Leader>bsd', '<cmd>BufferLineSortByDirectory<CR>', desc = 'Sort by directory' },
-      { '<Leader>bse', '<cmd>BufferLineSortByExtension<CR>', desc = 'Sort by extension' },
+      { '<A-1>',       '<cmd>BufferLineGoToBuffer 1<CR>' },
+      { '<A-2>',       '<cmd>BufferLineGoToBuffer 2<CR>' },
+      { '<A-3>',       '<cmd>BufferLineGoToBuffer 3<CR>' },
+      { '<A-4>',       '<cmd>BufferLineGoToBuffer 4<CR>' },
+      { '<A-5>',       '<cmd>BufferLineGoToBuffer 5<CR>' },
+      { '<A-6>',       '<cmd>BufferLineGoToBuffer 6<CR>' },
+      { '<A-7>',       '<cmd>BufferLineGoToBuffer 7<CR>' },
+      { '<A-8>',       '<cmd>BufferLineGoToBuffer 8<CR>' },
+      { '<A-9>',       '<cmd>BufferLineGoToBuffer 9<CR>' },
+      { '<Leader>bb',  '<cmd>BufferLineMovePrev<CR>',                desc = 'Move back' },
+      { '<Leader>bl',  '<cmd>BufferLineCloseLeft<CR>',               desc = 'Close Left' },
+      { '<Leader>br',  '<cmd>BufferLineCloseRight<CR>',              desc = 'Close Right' },
+      { '<Leader>bn',  '<cmd>BufferLineMoveNext<CR>',                desc = 'Move next' },
+      { '<Leader>bp',  '<cmd>BufferLinePick<CR>',                    desc = 'Pick Buffer' },
+      { '<Leader>bP',  '<cmd>BufferLineTogglePin<CR>',               desc = 'Pin/Unpin Buffer' },
+      { '<Leader>bsd', '<cmd>BufferLineSortByDirectory<CR>',         desc = 'Sort by directory' },
+      { '<Leader>bse', '<cmd>BufferLineSortByExtension<CR>',         desc = 'Sort by extension' },
       { '<Leader>bsr', '<cmd>BufferLineSortByRelativeDirectory<CR>', desc = 'Sort by relative dir' },
     },
     config = function()
@@ -548,7 +556,7 @@ return {
             return
           end
         end
-        return require 'notify'(msg, ...)
+        return require 'notify' (msg, ...)
       end
     end,
   },
@@ -585,7 +593,7 @@ return {
       require 'plugins.session-manager'
     end,
     keys = {
-      { '<Leader>ps', '<cmd>SessionManager available_commands<CR>', desc = 'session manager' },
+      { '<Leader>ps', '<cmd>SessionManager available_commands<CR>',   desc = 'session manager' },
       { '<Leader>pS', '<cmd>SessionManager save_current_session<CR>', desc = 'save session' },
     },
   },
@@ -605,12 +613,12 @@ return {
       local plugin = require('lazy.core.config').spec.plugins['mini.surround']
       local opts = require('lazy.core.plugin').values(plugin, 'opts', false)
       local mappings = {
-        { opts.mappings.add, desc = 'Add surrounding', mode = { 'n', 'v' } },
-        { opts.mappings.delete, desc = 'Delete surrounding' },
-        { opts.mappings.find, desc = 'Find right surrounding' },
-        { opts.mappings.find_left, desc = 'Find left surrounding' },
-        { opts.mappings.highlight, desc = 'Highlight surrounding' },
-        { opts.mappings.replace, desc = 'Replace surrounding' },
+        { opts.mappings.add,            desc = 'Add surrounding',                     mode = { 'n', 'v' } },
+        { opts.mappings.delete,         desc = 'Delete surrounding' },
+        { opts.mappings.find,           desc = 'Find right surrounding' },
+        { opts.mappings.find_left,      desc = 'Find left surrounding' },
+        { opts.mappings.highlight,      desc = 'Highlight surrounding' },
+        { opts.mappings.replace,        desc = 'Replace surrounding' },
         { opts.mappings.update_n_lines, desc = 'Update `MiniSurround.config.n_lines`' },
       }
       mappings = vim.tbl_filter(function(m)
@@ -620,8 +628,8 @@ return {
     end,
     opts = {
       mappings = {
-        add = 'ys', -- Add surrounding in Normal and Visual modes
-        delete = 'ds', -- Delete surrounding
+        add = 'ys',     -- Add surrounding in Normal and Visual modes
+        delete = 'ds',  -- Delete surrounding
         replace = 'cs', -- Replace surrounding
       },
     },
@@ -791,9 +799,9 @@ return {
           },
         },
       }, {
-        mode = 'n', -- NORMAL mode
+        mode = 'n',     -- NORMAL mode
         prefix = '<leader>',
-        silent = true, -- use `silent` when creating keymaps
+        silent = true,  -- use `silent` when creating keymaps
         noremap = true, -- use `noremap` when creating keymaps
         nowait = false, -- use `nowait` when creating keymaps
       })
@@ -806,9 +814,9 @@ return {
           },
         },
       }, {
-        mode = 'x', -- VISUAL mode
+        mode = 'x',     -- VISUAL mode
         prefix = '<leader>',
-        silent = true, -- use `silent` when creating keymaps
+        silent = true,  -- use `silent` when creating keymaps
         noremap = true, -- use `noremap` when creating keymaps
         nowait = false, -- use `nowait` when creating keymaps
       })
@@ -860,7 +868,7 @@ return {
     },
     opts = {
       border = EcoVim.ui.float.border or 'rounded', -- Valid window border style,
-      show_unknown_classes = true, -- Shows the unknown classes popup
+      show_unknown_classes = true,                  -- Shows the unknown classes popup
     },
   },
   {
@@ -958,9 +966,9 @@ return {
       end, 3000)
     end,
     keys = {
-      { '<leader>ccb', ':CopilotChatBuffer<cr>', desc = 'CopilotChat - Buffer' },
+      { '<leader>ccb', ':CopilotChatBuffer<cr>',      desc = 'CopilotChat - Buffer' },
       { '<leader>cce', '<cmd>CopilotChatExplain<cr>', desc = 'CopilotChat - Explain code' },
-      { '<leader>cct', '<cmd>CopilotChatTests<cr>', desc = 'CopilotChat - Generate tests' },
+      { '<leader>cct', '<cmd>CopilotChatTests<cr>',   desc = 'CopilotChat - Generate tests' },
       {
         '<leader>ccT',
         '<cmd>CopilotChatVsplitToggle<cr>',
@@ -1017,7 +1025,7 @@ return {
     end,
     keys = {
       { '<Leader>gd', "<cmd>lua require('plugins.git.diffview').toggle_file_history()<CR>", desc = 'diff file' },
-      { '<Leader>gS', "<cmd>lua require('plugins.git.diffview').toggle_status()<CR>", desc = 'status' },
+      { '<Leader>gS', "<cmd>lua require('plugins.git.diffview').toggle_status()<CR>",       desc = 'status' },
     },
   },
   {
@@ -1027,9 +1035,9 @@ return {
       require 'plugins.git.conflict'
     end,
     keys = {
-      { '<Leader>gcb', '<cmd>GitConflictChooseBoth<CR>', desc = 'choose both' },
+      { '<Leader>gcb', '<cmd>GitConflictChooseBoth<CR>',   desc = 'choose both' },
       { '<Leader>gcn', '<cmd>GitConflictNextConflict<CR>', desc = 'move to next conflict' },
-      { '<Leader>gcc', '<cmd>GitConflictChooseOurs<CR>', desc = 'choose current' },
+      { '<Leader>gcc', '<cmd>GitConflictChooseOurs<CR>',   desc = 'choose current' },
       { '<Leader>gcp', '<cmd>GitConflictPrevConflict<CR>', desc = 'move to prev conflict' },
       { '<Leader>gci', '<cmd>GitConflictChooseTheirs<CR>', desc = 'choose incoming' },
     },
@@ -1247,7 +1255,7 @@ return {
     enabled = true,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     keys = {
-      { '-', '<cmd>Oil<CR>', desc = 'Open parent directory' },
+      { '-',        '<cmd>Oil<CR>',                              desc = 'Open parent directory' },
       { '<space>-', "<CMD>lua require('oil').toggle_float()<CR>" },
     },
     opts = {
@@ -1459,9 +1467,9 @@ return {
 
         performanceOpts = {
           countThreshold = 100,
-          lazyredraw = true, -- enable lazyredraw (see `:h lazyredraw`)
+          lazyredraw = true,        -- enable lazyredraw (see `:h lazyredraw`)
           noSystemClipboard = true, -- remove `+`/`*` from clipboard option
-          autocmdEventsIgnore = { -- temporarily ignore these autocmd events
+          autocmdEventsIgnore = {   -- temporarily ignore these autocmd events
             'TextChangedI',
             'TextChanged',
             'InsertLeave',
@@ -1481,7 +1489,7 @@ return {
     build = 'make',
     cmd = { 'CodeSnap', 'CodeSnapASCII' },
     keys = {
-      { '<leader>cc', '<cmd>CodeSnap<cr>', mode = 'x', desc = 'Save selected code snapshot into clipboard' },
+      { '<leader>cc', '<cmd>CodeSnap<cr>',     mode = 'x', desc = 'Save selected code snapshot into clipboard' },
       { '<leader>cs', '<cmd>CodeSnapSave<cr>', mode = 'x', desc = 'Save selected code snapshot in ~/Pictures' },
     },
     opts = {

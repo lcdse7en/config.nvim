@@ -22,10 +22,10 @@ mason_lsp.setup({
 	-- A list of servers to automatically install if they're not already installed
 	ensure_installed = {
 		-- "bashls",
+    -- 'html',
 		-- "cssls",
 		-- "eslint",
 		-- "graphql",
-		-- "html",
 		-- "jsonls",
 		-- "lua_ls", -- sudo pacman -S lua-language-server
 		"pyright",
@@ -33,6 +33,7 @@ mason_lsp.setup({
 		-- "prismals",
 		-- "tailwindcss",
 		-- "tsserver"
+    -- 'rust_analyzer',
 	},
 	-- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
 	-- This setting has no relation with the `ensure_installed` setting.
@@ -70,25 +71,40 @@ mason_tool_installer.setup({
 
 local lspconfig = require("lspconfig")
 
--- lspconfig.tinymist.setup {
---   cmd = {"tinymist-language-server", "--stdio"},
---   filetypes = {"typst"},
+-- local handlers = {
+--   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+--     silent = true,
+--     border = EcoVim.ui.float.border,
+--   }),
+--   ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = EcoVim.ui.float.border }),
 -- }
 
+-- ╭────────────────────╮
+-- │ TOGGLE INLAY HINTS │
+-- ╰────────────────────╯
+if vim.lsp.inlay_hint then
+  vim.keymap.set('n', '<Space>ih', function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  end, { desc = 'Toggle Inlay Hints' })
+end
+
+local border = {
+  { '┌', 'FloatBorder' },
+  { '─', 'FloatBorder' },
+  { '┐', 'FloatBorder' },
+  { '│', 'FloatBorder' },
+  { '┘', 'FloatBorder' },
+  { '─', 'FloatBorder' },
+  { '└', 'FloatBorder' },
+  { '│', 'FloatBorder' },
+}
 local handlers = {
-	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		silent = true,
-		border = EcoVim.ui.float.border,
-	}),
-	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = EcoVim.ui.float.border }),
-	["textDocument/publishDiagnostics"] = vim.lsp.with(
-		vim.lsp.diagnostic.on_publish_diagnostics,
-		{ virtual_text = EcoVim.lsp.virtual_text }
-	),
+  ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = border }),
+  ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 }
 
 local function on_attach(client, bufnr)
-	-- set up buffer keymaps, etc.
+  vim.lsp.inlay_hint.enable(true, { bufnr })
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -98,7 +114,28 @@ capabilities.textDocument.foldingRange = {
 	lineFoldingOnly = true,
 }
 
-require("mason-lspconfig").setup_handlers({
+-- ╭──────────────╮
+-- │ TYPST SERVER │
+-- ╰──────────────╯
+lspconfig.tinymist.setup({
+  handlers = handlers,
+  single_file_support = true,
+  root_dir = function()
+    return vim.fn.getcwd()
+  end,
+  settings = {
+    formatterMode = 'typstyle',
+  },
+})
+
+-- ╭─────────────╮
+-- │ RUST SERVER │
+-- ╰─────────────╯
+-- lspconfig.rust_analyzer.setup({
+--   handlers = handlers,
+-- })
+
+require("mason-lspconfig").setup_handlers {
 	-- The first entry (without a key) will be the default handler
 	-- and will be called for each installed server that doesn't have
 	-- a dedicated handler.
@@ -109,6 +146,17 @@ require("mason-lspconfig").setup_handlers({
 			handlers = handlers,
 		})
 	end,
+
+  ["vtsls"] = function()
+    require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+
+    lspconfig.vtsls.setup({
+      capabilities = capabilities,
+      handlers = require("config.lsp.servers.tsserver").handlers,
+      on_attach =require("config.lsp.servers.tsserver").on_attach,
+      settings = require("config.lsp.servers.tsserver").settings,
+    })
+  end,
 
 	-- ["tsserver"] = function()
 		-- Skip since we use typescript-tools.nvim
@@ -161,14 +209,15 @@ require("mason-lspconfig").setup_handlers({
 		})
 	end,
 
-	["tinymist"] = function()
-		lspconfig.tinymist.setup({
-			capabilities = capabilities,
-			handlers = handlers,
-			on_attach = on_attach,
-			settings = require("config.lsp.servers.tinymist").settings,
-		})
-	end,
+	-- ["tinymist"] = function()
+	-- 	lspconfig.tinymist.setup({
+	-- 		filetypes = require("config.lsp.servers.tinymist").filetypes,
+	-- 		capabilities = capabilities,
+	-- 		handlers = handlers,
+	-- 		on_attach = on_attach,
+	-- 		settings = require("config.lsp.servers.tinymist").settings,
+	-- 	})
+	-- end,
 
 	["vuels"] = function()
 		lspconfig.vuels.setup({
@@ -178,10 +227,10 @@ require("mason-lspconfig").setup_handlers({
 			on_attach = require("config.lsp.servers.vuels").on_attach,
 			settings = require("config.lsp.servers.vuels").settings,
 		})
-	end,
-})
+	end
+}
 
 require("ufo").setup({
 	fold_virt_text_handler = ufo_config_handler,
-	-- close_fold_kinds_for_ft = { "imports" },
+  close_fold_kinds_for_ft = { default = { "imports" } },
 })
