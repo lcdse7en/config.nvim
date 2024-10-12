@@ -48,6 +48,11 @@ local options = {
   showmode       = false,                   --- Don't show things like -- INSERT -- anymore
   list           = true,
   listchars      = { tab = '> ', trail = ' ', nbsp = '+', },
+  linebreak = true,
+  breakindent = true,
+  showbreak = "  󱞩",
+  foldmethod = "expr",
+  foldexpr = "v:lua.vim.treesitter.foldexpr()",
 }
 
 local globals = {
