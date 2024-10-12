@@ -467,9 +467,10 @@ vim.api.nvim_create_autocmd('VimEnter', {
     -- │ NvimTree                                                │
     -- ╰─────────────────────────────────────────────────────────╯
     vim.cmd 'hi! NvimTreeNormal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NvimTreeNormalNC guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NvimTreeWinSeparator guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NvimTreeEndOfBuffer guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! NvimTreeTitle guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NvimTreeVertSplit guibg=NONE ctermbg=NONE'
 
     -- ╭─────────────────────────────────────────────────────────╮
     -- │ Telescope                                               │
