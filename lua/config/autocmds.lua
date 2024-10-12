@@ -462,6 +462,14 @@ vim.api.nvim_create_autocmd('VimEnter', {
     vim.cmd 'hi! LirFloatNormal guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! WinBar guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! WinBarNc guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! RenameNormal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! RenameBorder guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! TreesitterContext guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! CursorColumn guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! ColorColumn guibg=NONE ctermbg=NONE'
+
+    --  NOTE: CursorLine show
+    vim.cmd 'hi! CursorLine guibg=NONE ctermbg=NONE'
 
     -- ╭─────────────────────────────────────────────────────────╮
     -- │ NvimTree                                                │
