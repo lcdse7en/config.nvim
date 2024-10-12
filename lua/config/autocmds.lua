@@ -437,6 +437,14 @@ vim.api.nvim_set_keymap('i', '<C-l>', 'v:lua.jump_out_bracket()', { expr = true,
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     vim.cmd 'hi! Normal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! Type guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! Special guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! Constants guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! Structure guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! Operator guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! PreProc guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! Statement guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! Identifier guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NormalNC guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Nontext guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! LineNr guibg=NONE ctermbg=NONE'
@@ -461,6 +469,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
     vim.cmd 'hi! NvimTreeNormal guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NvimTreeWinSeparator guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NvimTreeEndOfBuffer guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NvimTreeTitle guibg=NONE ctermbg=NONE'
 
     -- ╭─────────────────────────────────────────────────────────╮
     -- │ Telescope                                               │
