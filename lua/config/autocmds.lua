@@ -444,21 +444,40 @@ vim.api.nvim_create_autocmd('VimEnter', {
     vim.cmd 'hi! NormalNC guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! MsgSeparator guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! ErrorMsg guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! NvimTreeNormal guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! NvimTreeWinSeparator guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! NvimTreeEndOfBuffer guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! CmpDocumentation guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! VertSplit guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! FloatBorder guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! WinBar guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! MsgArea guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! TelescopeNormal guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Directory guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! LirFloatNormal guibg=NONE ctermbg=NONE'
 
-    vim.cmd 'hi! NotifyERRORBodyNormal guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! NotifyWARNBodyNormal guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! NotifyINFOBodyNormal guibg=NONE ctermbg=NONE'
+    -- ╭─────────────────────────────────────────────────────────╮
+    -- │ NvimTree                                                │
+    -- ╰─────────────────────────────────────────────────────────╯
+    vim.cmd 'hi! NvimTreeNormal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NvimTreeWinSeparator guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NvimTreeEndOfBuffer guibg=NONE ctermbg=NONE'
+
+    -- ╭─────────────────────────────────────────────────────────╮
+    -- │ Telescope                                               │
+    -- ╰─────────────────────────────────────────────────────────╯
+    vim.cmd 'hi! TelescopeBorder guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! TelescopePreviewNormal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! TelescopePromptNormal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! TelescopeResultsNormal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! WhichKeyFloat guibg=NONE ctermbg=NONE'
+
+    -- ╭─────────────────────────────────────────────────────────╮
+    -- │ Notify                                                  │
+    -- ╰─────────────────────────────────────────────────────────╯
+    vim.cmd 'hi! NotifyINFOBody guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyINFOBorder guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyWARNBody guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyWARNBorder guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyERRORBody guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyERRORBorder guibg=NONE ctermbg=NONE'
+
   end,
 })
 
