@@ -114,20 +114,6 @@ capabilities.textDocument.foldingRange = {
 	lineFoldingOnly = true,
 }
 
--- ╭──────────────╮
--- │ TYPST SERVER │
--- ╰──────────────╯
-lspconfig.tinymist.setup({
-  handlers = handlers,
-  single_file_support = true,
-  root_dir = function()
-    return vim.fn.getcwd()
-  end,
-  settings = {
-    formatterMode = 'typstyle',
-  },
-})
-
 -- ╭─────────────╮
 -- │ RUST SERVER │
 -- ╰─────────────╯
@@ -209,15 +195,25 @@ require("mason-lspconfig").setup_handlers {
 		})
 	end,
 
-	-- ["tinymist"] = function()
-	-- 	lspconfig.tinymist.setup({
-	-- 		filetypes = require("config.lsp.servers.tinymist").filetypes,
-	-- 		capabilities = capabilities,
-	-- 		handlers = handlers,
-	-- 		on_attach = on_attach,
-	-- 		settings = require("config.lsp.servers.tinymist").settings,
-	-- 	})
-	-- end,
+	["tinymist"] = function()
+		lspconfig.tinymist.setup({
+			filetypes = require("config.lsp.servers.tinymist").filetypes,
+			capabilities = capabilities,
+			handlers = handlers,
+			on_attach = on_attach,
+      offset_encoding = "utf-8",
+			-- settings = require("config.lsp.servers.tinymist").settings,
+      single_file_support = true,
+      root_dir = function()
+        return vim.fn.getcwd()
+      end,
+      settings = {
+        exportPdf = "onType",
+        outputPath = "$root/target/$dir/$name",
+        formatterMode = "typstyle",
+      },
+		})
+	end,
 
 	["vuels"] = function()
 		lspconfig.vuels.setup({
