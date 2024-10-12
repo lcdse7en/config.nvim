@@ -438,6 +438,12 @@ vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     vim.cmd 'hi! Normal guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NormalFloat guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! WinBar guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! WinBarNc guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! CursorColumn guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! ColorColumn guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! Folded guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! FoldColumn guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NormalNC guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Type guibg=NONE ctermbg=NONE'
     -- vim.cmd 'hi! Special guibg=NONE ctermbg=NONE'
@@ -460,13 +466,9 @@ vim.api.nvim_create_autocmd('VimEnter', {
     vim.cmd 'hi! MsgArea guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Directory guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! LirFloatNormal guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! WinBar guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! WinBarNc guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! RenameNormal guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! RenameBorder guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! TreesitterContext guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! CursorColumn guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! ColorColumn guibg=NONE ctermbg=NONE'
 
     --  NOTE: CursorLine show
     vim.cmd 'hi! CursorLine guibg=NONE ctermbg=NONE'
@@ -497,8 +499,8 @@ vim.api.nvim_create_autocmd('VimEnter', {
     -- ╭─────────────────────────────────────────────────────────╮
     -- │ which-key                                               │
     -- ╰─────────────────────────────────────────────────────────╯
-    vim.cmd 'hi! WhichKey ctermbg=NONE guibg=NONE'
-    vim.cmd 'hi! WhichKeyFloat ctermbg=NONE guibg=NONE'
+    vim.cmd 'hi! WhichKey guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! WhichKeyFloat guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! WhichKeyGroup ctermbg=NONE guibg=NONE'
     vim.cmd 'hi! WhichKeyDesc ctermbg=NONE guibg=NONE'
 
