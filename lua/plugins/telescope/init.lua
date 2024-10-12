@@ -23,7 +23,6 @@ local git_icons = {
 require('telescope').setup {
   defaults = {
     border = true,
-    winblend = 10, -- 设置背景透明度
     hl_result_eol = true,
     multi_icon = '',
     vimgrep_arguments = {
@@ -68,12 +67,11 @@ require('telescope').setup {
   },
   extensions = {
     wrap_results = true,
-
-    -- fzf = {
-    --   override_generic_sorter = false,
-    --   override_file_sorter = true,
-    --   case_mode = "smart_case",
-    -- }
+    fzf = {
+      override_generic_sorter = false,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    },
     -- history = {
     --   path = vim.fs.joinpath(data, 'telescope_history.sqlite3'),
     --   limit = 100,
@@ -141,7 +139,7 @@ M.edit_neovim = function()
     previewer = false,
     prompt_title = 'Ecovim Dotfiles',
     sorting_strategy = 'ascending',
-    winblend = 10,
+    winblend = 4,
     layout_config = {
       horizontal = {
         mirror = false,
@@ -175,6 +173,23 @@ M.command_history = function()
       end,
     },
   })
+end
+
+M.buffer_search = function()
+  builtin.buffers(
+    require('telescope.themes').get_dropdown({
+      previewer      = false,
+      color_devicons = true,
+      winblend       = 4,
+      layout_config  = {
+        width = function(_, max_columns, _)
+          return math.min(max_columns, 100)
+        end,
+        height = function(_, _, max_lines)
+          return math.min(max_lines, 15)
+        end,
+      },
+    }))
 end
 
 return M
