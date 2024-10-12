@@ -471,6 +471,8 @@ vim.api.nvim_create_autocmd('VimEnter', {
     vim.cmd 'hi! NvimTreeWinSeparator guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NvimTreeEndOfBuffer guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NvimTreeVertSplit guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! Pmenu guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! PmenuSel guibg=NONE ctermbg=NONE'
 
     -- ╭─────────────────────────────────────────────────────────╮
     -- │ Telescope                                               │
@@ -481,7 +483,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
     vim.cmd 'hi! TelescopePromptTitle guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! TelescopePromptBorder guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! TelescopeResultsNormal guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! WhichKeyFloat guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! WhichKeyFloat ctermbg=NONE ctermfg=NONE'
 
     -- ╭─────────────────────────────────────────────────────────╮
     -- │ Notify                                                  │
