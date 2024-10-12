@@ -437,37 +437,38 @@ vim.api.nvim_set_keymap('i', '<C-l>', 'v:lua.jump_out_bracket()', { expr = true,
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     vim.cmd 'hi! Normal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NormalFloat guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NormalNC guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Type guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! Special guibg=NONE ctermbg=NONE'
+    -- vim.cmd 'hi! Special guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Constants guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Structure guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Operator guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! PreProc guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Statement guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Identifier guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! NormalNC guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Nontext guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! LineNr guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! StatusLine guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! StatusLineNC guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! SignColumn guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! NormalFloat guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! NormalNC guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! MsgSeparator guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! ErrorMsg guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! CmpDocumentation guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! VertSplit guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! FloatBorder guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! WinBar guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! MsgArea guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Directory guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! LirFloatNormal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! WinBar guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! WinBarNc guibg=NONE ctermbg=NONE'
 
     -- ╭─────────────────────────────────────────────────────────╮
     -- │ NvimTree                                                │
     -- ╰─────────────────────────────────────────────────────────╯
     vim.cmd 'hi! NvimTreeNormal guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NvimTreeNormalNC guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NvimTreeLineNr guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NvimTreeWinSeparator guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NvimTreeEndOfBuffer guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NvimTreeVertSplit guibg=NONE ctermbg=NONE'
@@ -482,18 +483,41 @@ vim.api.nvim_create_autocmd('VimEnter', {
     vim.cmd 'hi! TelescopePromptNormal guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! TelescopePromptTitle guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! TelescopePromptBorder guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! TelescopePromptPrefix guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! TelescopeResultsNormal guibg=NONE ctermbg=NONE'
-    vim.cmd 'hi! WhichKeyFloat ctermbg=NONE ctermfg=NONE'
+
+    -- ╭─────────────────────────────────────────────────────────╮
+    -- │ which-key                                               │
+    -- ╰─────────────────────────────────────────────────────────╯
+    vim.cmd 'hi! WhichKey ctermbg=NONE guibg=NONE'
+    vim.cmd 'hi! WhichKeyFloat ctermbg=NONE guibg=NONE'
+    vim.cmd 'hi! WhichKeyGroup ctermbg=NONE guibg=NONE'
+    vim.cmd 'hi! WhichKeyDesc ctermbg=NONE guibg=NONE'
 
     -- ╭─────────────────────────────────────────────────────────╮
     -- │ Notify                                                  │
     -- ╰─────────────────────────────────────────────────────────╯
     vim.cmd 'hi! NotifyINFOBody guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NotifyINFOBorder guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyINFOIcon guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyINFOTitle guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NotifyWARNBody guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NotifyWARNBorder guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyWARNIcon guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyWARNTitle guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NotifyERRORBody guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NotifyERRORBorder guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyERRORIcon guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NotifyERRORTitle guibg=NONE ctermbg=NONE'
+
+    -- ╭─────────────────────────────────────────────────────────╮
+    -- │ noice                                                   │
+    -- ╰─────────────────────────────────────────────────────────╯
+    vim.cmd 'hi! NoiceMini guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NoiceCmdlinepopup guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NoiceCmdlinepopupBorder guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NoiceCmdlinepopupBorderSearch guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NoiceCmdlinepopupTitle guibg=NONE ctermbg=NONE'
 
   end,
 })
