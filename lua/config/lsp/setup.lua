@@ -204,12 +204,12 @@ require("mason-lspconfig").setup_handlers {
       offset_encoding = "utf-8",
 			-- settings = require("config.lsp.servers.tinymist").settings,
       single_file_support = true,
-      root_dir = function()
-        return vim.fn.getcwd()
-      end,
+      -- root_dir = function()
+      --   return vim.fn.getcwd()
+      -- end,
       settings = {
-        exportPdf = "onType",
-        outputPath = "$root/target/$dir/$name",
+        exportPdf = "never",
+        -- outputPath = "$root/target/$dir/$name",
         formatterMode = "typstyle",
       },
 		})
