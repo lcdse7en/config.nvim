@@ -37,4 +37,5 @@ require("lazy").setup("config.plugins", {
 
 vim.keymap.set("n", "<leader>/l", "<cmd>:Lazy<cr>")
 
-vim.cmd([[colorscheme darkplus]])
+-- vim.cmd([[colorscheme darkplus]])
+-- vim.cmd([[colorscheme nord]])

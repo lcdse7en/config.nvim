@@ -2,20 +2,25 @@ return {
   -- ╭─────────────────────────────────────────────────────────╮
   -- │ Themes                                                  │
   -- ╰─────────────────────────────────────────────────────────╯
-  -- {
-  -- 	"folke/tokyonight.nvim",
-  -- 	lazy = false,
-  -- 	priority = 1000,
-  -- 	config = function()
-  -- 		-- load the colorscheme here
-  -- 		vim.cmd([[colorscheme tokyonight]])
-  -- 		require("config.colorscheme")
-  -- 	end,
-  -- },
+  {
+  	"folke/tokyonight.nvim",
+  	lazy = false,
+  	priority = 1000,
+  	config = function()
+  		-- load the colorscheme here
+      vim.cmd("colorscheme " .. EcoVim.colorscheme)
+  		require("config.colorscheme")
+  	end,
+  },
   {
     'LunarVim/darkplus.nvim',
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
+  },
+  {
+    'shaunsingh/nord.nvim',
+    lazy = false,
+    priority = 1000,
   },
   { 'nvim-lua/plenary.nvim' },
   {
@@ -381,6 +386,7 @@ return {
   { 'dhruvasagar/vim-table-mode', ft = { 'markdown' } },
   {
     'smoka7/multicursors.nvim',
+    enabled = false,
     event = 'VeryLazy',
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
