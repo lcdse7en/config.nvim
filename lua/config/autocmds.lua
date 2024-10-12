@@ -437,8 +437,11 @@ vim.api.nvim_set_keymap('i', '<C-l>', 'v:lua.jump_out_bracket()', { expr = true,
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     vim.cmd 'hi! Normal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! NormalNC guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! Nontext guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! LineNr guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! StatusLine guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! StatusLineNC guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! SignColumn guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NormalFloat guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! NormalNC guibg=NONE ctermbg=NONE'
