@@ -468,6 +468,8 @@ vim.api.nvim_create_autocmd('VimEnter', {
     vim.cmd 'hi! TelescopeBorder guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! TelescopePreviewNormal guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! TelescopePromptNormal guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! TelescopePromptTitle guibg=NONE ctermbg=NONE'
+    vim.cmd 'hi! TelescopePromptBorder guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! TelescopeResultsNormal guibg=NONE ctermbg=NONE'
     vim.cmd 'hi! WhichKeyFloat guibg=NONE ctermbg=NONE'
 
