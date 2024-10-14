@@ -195,6 +195,15 @@ require("mason-lspconfig").setup_handlers {
 		})
 	end,
 
+	["pyright"] = function()
+		lspconfig.pyright.setup({
+			capabilities = capabilities,
+			handlers = handlers,
+			on_attach = on_attach,
+			settings = require("config.lsp.servers.pyright").settings,
+		})
+	end,
+
 	["tinymist"] = function()
 		lspconfig.tinymist.setup({
 			filetypes = require("config.lsp.servers.tinymist").filetypes,
@@ -202,17 +211,17 @@ require("mason-lspconfig").setup_handlers {
 			handlers = handlers,
 			on_attach = on_attach,
       offset_encoding = "utf-8",
-			-- settings = require("config.lsp.servers.tinymist").settings,
-      single_file_support = true,
+			settings = require("config.lsp.servers.tinymist").settings,
+      -- single_file_support = true,
       -- root_dir = function(filename, bufnr)
       --   -- return vim.fn.getcwd()
       --   return "$HOME/Clone/typst-book-template"
       -- end,
-      settings = {
-        exportPdf = "never",
-        -- outputPath = "$root/target/$dir/$name",
-        formatterMode = "typstyle",
-      },
+      -- settings = {
+      --   exportPdf = "never",
+      --   -- outputPath = "$root/target/$dir/$name",
+      --   formatterMode = "typstyle",
+      -- },
 		})
 	end,
 

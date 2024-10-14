@@ -475,4 +475,34 @@ return {
       }
     )
   ),
+  s(
+    {
+      trig = "mycl",
+      regTrig = false,
+      snippetType = "snippet",
+    },
+    fmta(
+      [[
+
+      ]],
+      {}
+    )
+  ),
+  s(
+    {
+      trig = "mycl",
+      regTrig=false,
+      snippetType = "autosnippet",
+      priority = 2000,
+    },
+    fmta(
+      [[
+      - [<>] <>
+      ]],
+      {
+        c(1, { t "x", t"/", t "-"}),
+        i(2),
+      }
+    )
+  ),
 }
