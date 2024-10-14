@@ -208,6 +208,7 @@ keymap(
 )
 
 keymap('n', '<leader>fb', '<cmd>silent BrowseBookmarks<CR>', { silent = true, desc = 'Browse bookmarks' })
+keymap('n', '<leader>fB', '<cmd>Telescope buffers<CR>', { silent = true, desc = 'Search buffers' })
 keymap('n', '<leader>fc', '<cmd>Telescope colorscheme<CR>', { silent = true, desc = 'Color schemes' })
 keymap(
   'n',
