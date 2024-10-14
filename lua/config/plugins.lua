@@ -389,7 +389,6 @@ return {
     enabled = false,
     event = 'VeryLazy',
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
       'smoka7/hydra.nvim',
     },
     opts = {
@@ -412,7 +411,7 @@ return {
         mode = { 'v', 'n' },
         '<LEADER>e',
         '<CMD>MCstart<CR>',
-        desc = 'multicursor',
+        desc = '[M]ulticursor',
       },
       {
         mode = { 'v', 'n' },
@@ -555,6 +554,7 @@ return {
         'No information available',
         'LSP[tsserver] Inlay Hints request failed. Requires TypeScript 4.4+.',
         'LSP[tsserver] Inlay Hints request failed. File not opened in the editor.',
+        'Client tinymist quit with exit code 0 and signal 6. Check log for errors: /home/se7en/.local/state/nvim/lsp.log',
       }
       vim.notify = function(msg, ...)
         for _, banned in ipairs(banned_messages) do
