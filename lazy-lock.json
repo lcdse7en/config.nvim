@@ -74,7 +74,7 @@
   "nvim-scrollbar": { "branch": "main", "commit": "d09f14aa16c9f2748e77008f9da7b1f76e4e7b85" },
   "nvim-spectre": { "branch": "master", "commit": "ba7fb777edff6c1fbbeffd343e113af64c04e90a" },
   "nvim-toggleterm.lua": { "branch": "main", "commit": "137d06fb103952a0fb567882bb8527e2f92d327d" },
-  "nvim-tree.lua": { "branch": "master", "commit": "1c9553a19f70df3dcb171546a3d5e034531ef093" },
+  "nvim-tree.lua": { "branch": "master", "commit": "ce09bfb95f4728e28c096e2b7d9245b56e59d5a3" },
   "nvim-treesitter": { "branch": "master", "commit": "5a2ff8b7ca5470b1011ed82ef3fdd53139ffc467" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "b91c98afa6c42819aea6cbc1ba38272f5456a5cf" },
   "nvim-treesitter-textsubjects": { "branch": "master", "commit": "a8d2844bba925d9450ef7ab215f3b054028288ca" },
@@ -125,6 +125,6 @@
   "wezterm-config.nvim": { "branch": "main", "commit": "9ce616b5b1a00fbbbeca5c89aaf89d774dbec3de" },
   "which-key.nvim": { "branch": "main", "commit": "8badb359f7ab8711e2575ef75dfe6fbbd87e4821" },
   "wildfire.nvim": { "branch": "master", "commit": "1729faca1c6ae34520a6e531983a3737d3654ee1" },
-  "yazi.nvim": { "branch": "main", "commit": "1e8d63d85176d5e0cca191fd6c5847839b65bfa8" },
+  "yazi.nvim": { "branch": "main", "commit": "bff42c2ead02675d66e31799d2f3edaba29a4c79" },
   "zen-mode.nvim": { "branch": "main", "commit": "29b292bdc58b76a6c8f294c961a8bf92c5a6ebd6" }
 }
