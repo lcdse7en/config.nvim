@@ -29,6 +29,7 @@ mason_lsp.setup({
 		-- "jsonls",
 		-- "lua_ls", -- sudo pacman -S lua-language-server
 		"pyright",
+    -- "clangd",
 		-- "tinymist", -- typst LSP
 		-- "prismals",
 		-- "tailwindcss",
@@ -54,6 +55,7 @@ mason_tool_installer.setup({
 		"taplo", -- toml formatter
 		"black",
 		"isort",
+    -- "typstyle",
 		-- "ruff",
 		-- 'shellcheck',
 		-- "prettier", -- prettier formatter
@@ -201,6 +203,15 @@ require("mason-lspconfig").setup_handlers {
 			handlers = handlers,
 			on_attach = on_attach,
 			settings = require("config.lsp.servers.pyright").settings,
+		})
+	end,
+
+	["clangd"] = function()
+		lspconfig.clangd.setup({
+			capabilities = capabilities,
+			handlers = handlers,
+			on_attach = on_attach,
+			settings = require("config.lsp.servers.clangd").settings,
 		})
 	end,
 

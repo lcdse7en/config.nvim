@@ -232,7 +232,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('typst', { clear = true }),
   pattern = {
-    '*.typ',
+    'typst',
   },
   callback = function()
     vim.bo.shiftwidth = 2
@@ -365,23 +365,6 @@ vim.cmd [[
     augroup end
 ]]
 
-vim.api.nvim_create_autocmd('FileType', {
-  group = vim.api.nvim_create_augroup('typst', { clear = true }),
-  pattern = {
-    '*.typ',
-  },
-  callback = function()
-    vim.bo.shiftwidth = 2
-    vim.bo.softtabstop = 2
-    vim.bo.autoindent = true
-    vim.bo.cindent = true
-    vim.bo.expandtab = true
-    vim.bo.smartindent = true
-    vim.bo.copyindent = true
-    vim.opt.colorcolumn = '120'
-    vim.wo.wrap = true
-  end,
-})
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('sh', { clear = true }),
   pattern = {
@@ -574,6 +557,19 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.opt_local.spell = false
     -- vim.wo.spell = false
+  end,
+})
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = "*",
+  callback = function()
+    local ft = { "markdown", "typst", "Avante" }
+    for _, v in ipairs(ft) do
+      if vim.bo.filetype == v then
+        vim.wo.wrap = true
+        return
+      end
+    end
+    vim.wo.wrap = false
   end,
 })
 
