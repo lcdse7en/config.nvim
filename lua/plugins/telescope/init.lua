@@ -137,9 +137,29 @@ M.edit_neovim = function()
     color_devicons = true,
     cwd = '~/.config/nvim',
     previewer = false,
-    prompt_title = 'Ecovim Dotfiles',
+    prompt_title = 'Neovim Dotfiles',
     sorting_strategy = 'ascending',
-    winblend = 4,
+    -- winblend = 4,
+    layout_config = {
+      horizontal = {
+        mirror = false,
+      },
+      vertical = {
+        mirror = false,
+      },
+      prompt_position = 'top',
+    },
+  })
+end
+
+M.edit_typst_book_template = function()
+  builtin.git_files(require('telescope.themes').get_dropdown {
+    color_devicons = true,
+    cwd = '~/Clone/typst-book-template',
+    previewer = false,
+    prompt_title = 'typst-book-template Dotfiles',
+    sorting_strategy = 'ascending',
+    -- winblend = 4,
     layout_config = {
       horizontal = {
         mirror = false,
@@ -163,7 +183,7 @@ end
 M.command_history = function()
   builtin.command_history(require('telescope.themes').get_dropdown {
     color_devicons = true,
-    winblend = 4,
+    -- winblend = 4,
     layout_config = {
       width = function(_, max_columns, _)
         return math.min(max_columns, 150)
@@ -180,7 +200,7 @@ M.buffer_search = function()
     require('telescope.themes').get_dropdown({
       previewer      = false,
       color_devicons = true,
-      winblend       = 4,
+      -- winblend       = 4,
       layout_config  = {
         width = function(_, max_columns, _)
           return math.min(max_columns, 100)

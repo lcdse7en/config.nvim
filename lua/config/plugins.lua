@@ -1367,7 +1367,7 @@ return {
     cmd = { 'ToggleAlternate' },
     keys = {
       {
-        '<leader>ff',
+        '<leader>fa',
         '<cmd>ToggleAlternate<cr>',
         mode = { 'n' },
         desc = 'Toggle Alternate False  True',

@@ -217,6 +217,12 @@ keymap(
 )
 keymap(
   'n',
+  '<leader>ff',
+  '<cmd>lua require("plugins.telescope").edit_typst_book_template()<CR>',
+  { silent = true, desc = 'typst_book_template dotfiles' }
+)
+keymap(
+  'n',
   '<leader>fg',
   '<cmd>lua require("telescope").extensions.live_grep_args.live_grep_args()<cr>',
   { silent = true, desc = 'Find text' }
