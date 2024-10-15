@@ -180,7 +180,7 @@ return {
         #text(font: "<>")[<>]
       ]],
       {
-        c(1, { t 'SF Pro Text', t 'LXGW Neo ZhiSong', t 'STKaiti', t 'STXingKai', t "STXinwei" }),
+        c(1, { t "", t 'SF Pro Text', t 'LXGW Neo ZhiSong', t 'STKaiti', t 'STXingKai', t "STXinwei" }),
         i(2),
       }
     )
